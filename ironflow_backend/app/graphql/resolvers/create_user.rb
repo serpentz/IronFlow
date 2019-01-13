@@ -1,3 +1,4 @@
+require_relative '../../adapters/adapter.rb'
 module Resolvers
   class CreateUser < GraphQL::Function
     # TODO: define return fields
@@ -5,79 +6,65 @@ module Resolvers
     argument :user, Types::UserInputType
 
     type do
-          name 'SigninPayload'
+      name 'CreateUserPayload'
 
-          field :token, types.String
-          field :user, Types::UserType
-          field :errors, types.String
-        end
+      field :token, types.String
+      field :user, Types::UserType
+      field :errors, types.String
+    end
 
     # TODO: define resolve method
     def call(_obj, args, _ctx)
+      @user = User.create args[:user].to_h
 
+      # ensures we created the user
+      unless @user.valid?
+        return OpenStruct.new(
+          errors: @user.errors.full_messages.join(', ')
+        )
 
-           @user = User.create args[:user].to_h
+      end
+      # return unless user.authenticate(input[:password])
 
-
-           # ensures we created the user
-          if !@user.valid? then
-            return OpenStruct.new({
-
-              errors: @user.errors.full_messages.join(", ")
-            })
-
-          end
-           # return unless user.authenticate(input[:password])
-
-          crypt = ActiveSupport::MessageEncryptor.new(Rails.application.credentials.secret_key_base.byteslice(0..31))
-           token = crypt.encrypt_and_sign("user-id:#{ @user.id }")
-
-           OpenStruct.new({
-             user: @user,
-             token: token
-           })
+      OpenStruct.new(
+        user: @user
+      )
     end
-
   end
 
-  class CreateUser < GraphQL::Function
-    # TODO: define return fields
-
+  class SignInUser < GraphQL::Function
     argument :user, Types::UserInputType
 
     type do
-          name 'SigninPayload'
+      name 'SignInPayload'
 
-          field :token, types.String
-          field :user, Types::UserType
-          field :errors, types.String
-        end
-
-    # TODO: define resolve method
-    def call(_obj, args, _ctx)
-
-
-           @user = User.create args[:user].to_h
-
-
-           # ensures we created the user
-          if !@user.valid? then
-            return OpenStruct.new({
-
-              errors: @user.errors.full_messages.join(", ")
-            })
-
-          end
-           # return unless user.authenticate(input[:password])
-
-          crypt = ActiveSupport::MessageEncryptor.new(Rails.application.credentials.secret_key_base.byteslice(0..31))
-           token = crypt.encrypt_and_sign("user-id:#{ @user.id }")
-
-           OpenStruct.new({
-             user: @user,
-             token: token
-           })
+      field :token, types.String
+      field :user, Types::UserType
+      field :errors, types.String
     end
 
+    def call(_obj, args, _ctx)
+      user = User.find email: args[:user][:email]
+
+      # ensures we found the user
+      unless user
+        return OpenStruct.new(
+          errors: "User #{args[:user][:email]} was not found."
+        )
+      end
+      # ensures the user's password is correct
+      unless user.authenticate(args[:user][:password])
+        return OpenStruct.new(
+          errors: user.errors.full_messages.join(', ')
+        )
+      end
+      # return unless user.authenticate(input[:password])
+
+      # token = Adapter::Auth.new.encode_token("user_id: #{@user.id}")
+
+      OpenStruct.new(
+        user: user
+      )
+    end
   end
 end
