@@ -21,25 +21,12 @@ export default class Home extends Component {
 
                 </div>
                 <div className="section-hero-top-crypto">
-                    <div className="div-s1-news">
-                        <a href="#" className="link-block w-inline-block">
-                            <div className="news-card">
-                                <div className="div-block-6">
-                                    <div className="paragraph-no-line">NEWS</div>
-                                </div>
-                                <div className="paragraph-no-line">Hello World</div>
-                            </div>
-                        </a>
-                    </div>
+                    
                     <div className="div-s1-title-intro">
                         <div className="div-block-4">
-                            <h1 className="h1 text-white">It’s time to <strong>have feed</strong>, <strong>get news</strong> and <strong>know everything! &nbsp;</strong></h1>
-                            <p className="paragraph-aa">Welcome in my template for personalise your feed by your twitter.
-                                Copy and past the code from twitter and create one board for all of favorites.
-                                Never lose informations. My exemple is created with some crypto news.
-
+                            <h1 className="h1 text-white">Welcome to <strong> IronFlow</strong></h1>
+                            <p className="paragraph-aa">A service provided by <strong>Students</strong> for <strong>Students</strong>
                             </p>
-                            <div className="div-block-62"><a href="#" target="_blank" className="link-hero">BUY&nbsp;THIS&nbsp;TEMPLATE $20</a></div>
                         </div>
                     </div>
                 </div>
