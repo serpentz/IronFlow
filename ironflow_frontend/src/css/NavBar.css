@@ -1718,7 +1718,7 @@ h6,ul {
     cursor: default!important
 }
 
-.link,.navbar-link,.slider-slide,.template-item,.w-nav-button,.w-tab-link,li {
+.link,.navbar1-link,.slider-slide,.template-item,.w-nav-button,.w-tab-link,li {
     cursor: pointer
 }
 
@@ -2094,7 +2094,7 @@ li:hover {
     color: #e8f1f6
 }
 
-.angle-second,.angle-top,.angle-top-filler,.navbar.scrolled {
+.angle-second,.angle-top,.angle-top-filler,.navbar1.scrolled {
     background-color: #fff
 }
 
@@ -2260,17 +2260,18 @@ figcaption {
     box-shadow: 0 21px 131px 0 rgba(0,0,0,.54)
 }
 
-.diff-item,.navbar {
+.diff-item,.navbar1 {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox
 }
 
-.navbar {
+.navbar1{
     position: fixed;
     left: 0;
     top: 0;
     right: 0;
+    margin: 0;
     z-index: 100;
     display: flex;
     width: 100%;
@@ -2287,7 +2288,7 @@ figcaption {
     align-items: center
 }
 
-.navbar.scrolled {
+.navbar1.scrolled {
     box-shadow: 0 0 24px 0 rgba(20,21,24,.55)
 }
 
@@ -2724,16 +2725,17 @@ figcaption {
     text-transform: uppercase
 }
 
-.navbar-link,.navbar-link.navbar-link-signup {
+.navbar1-link,.navbar1-link.navbar1-link-signup {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox
 }
 
-.navbar-link {
+.navbar1-link {
     position: relative;
     display: flex;
     height: 100%;
+    margin: 0;
     padding-right: 0;
     padding-left: 0;
     -webkit-box-align: center;
@@ -2752,11 +2754,11 @@ figcaption {
     text-transform: uppercase
 }
 
-.navbar-link:hover {
+.navbar1-link:hover {
     color: #23aae0
 }
 
-.navbar-link.navbar-link-signup {
+.navbar1-link.navbar1-link-signup {
     display: flex;
     padding-right: 15px;
     padding-left: 15px;
@@ -2766,21 +2768,21 @@ figcaption {
     color: #fff
 }
 
-.navbar-link.navbar-link-signup:hover {
+.navbar1-link.navbar1-link-signup:hover {
     height: 122%;
     background-color: #25b1e9
 }
 
-.navbar-link.navbar-link-signup.signup-button {
+.navbar1-link.navbar1-link-signup.signup-button {
     border-bottom: 2px solid transparent;
     font-weight: 600
 }
 
-.navbar-link.navbar-link-signup.signup-button:hover {
+.navbar1-link.navbar1-link-signup.signup-button:hover {
     border-bottom: 2px solid #58cfff
 }
 
-.navbar-link.navbar-link-signup.logout-button {
+.navbar1-link.navbar1-link-signup.logout-button {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -2788,25 +2790,25 @@ figcaption {
     border-bottom: 2px solid transparent
 }
 
-.navbar-link.navbar-link-signup.logout-button:hover {
+.navbar1-link.navbar1-link-signup.logout-button:hover {
     border-bottom: 2px solid #58cfff
 }
 
-.navbar-link.underline {
+.navbar1-link.underline {
     -webkit-transition: color .2s ease;
     transition: color .2s ease;
     font-weight: 600
 }
 
-.navbar-link.underline.hider {
+.navbar1-link.underline.hider {
     font-weight: 600
 }
 
-.navbar-link.spacer {
+.navbar1-link.spacer {
     display: none
 }
 
-.navbar-link.navbar-link-go-to-library {
+.navbar1-link.navbar1-link-go-to-library {
     display: none;
     height: auto;
     padding: 6px 20px;
@@ -2817,33 +2819,33 @@ figcaption {
     color: #fff
 }
 
-.carousel,.navbar-link-text {
+.carousel,.navbar1-link-text {
     padding-top: 0;
     padding-bottom: 0
 }
 
-.navbar-link.navbar-link-go-to-library:hover {
+.navbar1-link.navbar1-link-go-to-library:hover {
     background-color: #46c4f6
 }
 
-.navbar-link.navbar-link-go-to-library.signup-button {
+.navbar1-link.navbar1-link-go-to-library.signup-button {
     border-bottom: 2px solid transparent
 }
 
-.navbar-link.navbar-link-go-to-library.signup-button:hover {
+.navbar1-link.navbar1-link-go-to-library.signup-button:hover {
     border-bottom: 2px solid #58cfff
 }
 
-.navbar-link.navbar-link-go-to-library.logout-button {
+.navbar1-link.navbar1-link-go-to-library.logout-button {
     display: none;
     border-bottom: 2px solid transparent
 }
 
-.navbar-link.navbar-link-go-to-library.logout-button:hover {
+.navbar1-link.navbar1-link-go-to-library.logout-button:hover {
     border-bottom: 2px solid #58cfff
 }
 
-.navbar-link.logout-button {
+.navbar1-link.logout-button {
     display: none
 }
 
@@ -2922,16 +2924,16 @@ figcaption {
     text-align: left
 }
 
-.navbar-link-text {
+.navbar1-link-text {
     border-bottom: 2px solid rgba(35,170,224,0);
     line-height: 26px
 }
 
-.navbar-link-text:hover {
+.navbar1-link-text:hover {
     color: #23aae0
 }
 
-.navbar-link-text.navbar-signup:hover {
+.navbar1-link-text.navbar1-signup:hover {
     border-width: 2px;
     border-color: #fff;
     color: #fff
@@ -3654,14 +3656,14 @@ figcaption {
     width: 50px
 }
 
-.navbar-logo {
+.navbar1-logo {
     padding:20px;
     /*margin-top: -10vh;*/
     width: 125px;
     height: 125px;
 }
 
-.navbar-logo.mobile {
+.navbar1-logo.mobile {
     display: none
 }
 
@@ -3986,7 +3988,7 @@ figcaption {
     float: left
 }
 
-.navbar-scripts {
+.navbar1-scripts {
     display: none
 }
 
@@ -5153,7 +5155,7 @@ figcaption {
         border-radius: 0
     }
 
-    .navbar {
+    .navbar1 {
         padding-right: 0;
         -webkit-box-pack: justify;
         -webkit-justify-content: space-between;
@@ -5187,7 +5189,7 @@ figcaption {
         min-width: 400px
     }
 
-    .navbar-link.navbar-link-signup.signup-button {
+    .navbar1-link.navbar1-link-signup.signup-button {
         -webkit-box-pack: center;
         -webkit-justify-content: center;
         -ms-flex-pack: center;
@@ -5198,16 +5200,16 @@ figcaption {
         flex: 0 auto
     }
 
-    .navbar-link.underline {
+    .navbar1-link.underline {
         padding-right: 17px;
         padding-left: 17px
     }
 
-    .navbar-link.underline.hider {
+    .navbar1-link.underline.hider {
         display: none
     }
 
-    .navbar-link.spacer {
+    .navbar1-link.spacer {
         display: block;
         -webkit-box-flex: 1;
         -webkit-flex: 1;
@@ -5215,14 +5217,14 @@ figcaption {
         flex: 1
     }
 
-    .navbar-link.logo {
+    .navbar1-link.logo {
         -webkit-align-self: center;
         -ms-flex-item-align: center;
         -ms-grid-row-align: center;
         align-self: center
     }
 
-    .navbar-link.navbar-spacer {
+    .navbar1-link.navbar1-spacer {
         -webkit-box-flex: 1;
         -webkit-flex: 1;
         -ms-flex: 1;
@@ -5261,11 +5263,11 @@ figcaption {
         margin-bottom: 25px
     }
 
-    .navbar-logo {
+    .navbar1-logo {
         display: block
     }
 
-    .navbar-logo.mobile {
+    .navbar1-logo.mobile {
         display: block;
         width: 200px
     }
@@ -5335,7 +5337,7 @@ figcaption {
         border-radius: 0
     }
 
-    .navbar {
+    .navbar1 {
         height: 40px
     }
 
@@ -5364,7 +5366,7 @@ figcaption {
         bottom: -46px
     }
 
-    .navbar-logo.mobile {
+    .navbar1-logo.mobile {
         width: 150px;
         padding-top: 3px
     }
@@ -5464,7 +5466,7 @@ figcaption {
 }
 
 @media (max-width: 479px) {
-    .diff-textbox,.navbar {
+    .diff-textbox,.navbar1 {
         width:100%
     }
 
@@ -5515,11 +5517,11 @@ figcaption {
         border-radius: 0
     }
 
-    .navbar {
+    .navbar1 {
         padding-left: 15px
     }
 
-    .navbar.scrolled {
+    .navbar1.scrolled {
         padding-left: 0
     }
 
@@ -5596,14 +5598,15 @@ figcaption {
         margin: 23px 13px
     }
 
-    .navbar-link {
+    .navbar1-link {
         -webkit-box-flex: 0;
         -webkit-flex: 0 0 auto;
         -ms-flex: 0 0 auto;
-        flex: 0 0 auto
+        margin: 0 !important;
+        flex: 0 0 auto;
     }
 
-    .navbar-link.logo {
+    .navbar1-link.logo {
         -webkit-box-flex: 1;
         -webkit-flex: 1;
         -ms-flex: 1;
@@ -5699,7 +5702,7 @@ figcaption {
         flex: 0 auto
     }
 
-    .navbar-logo.mobile {
+    .navbar1-logo.mobile {
         display: block;
         width: 160px;
         margin-left: 25px;

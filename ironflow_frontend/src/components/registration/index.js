@@ -1,6 +1,7 @@
 import RegistrationCarousel from "./RegistrationCarousel";
 
 import React, { Component } from "react";
+import "../../App.css";
 
 export default class Registration extends Component {
   render() {

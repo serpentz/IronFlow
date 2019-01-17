@@ -7045,7 +7045,7 @@ html.w-mod-js [data-ix=text-loop] {
         -webkit-box-direction: normal;
         -webkit-flex-direction: column;
         -ms-grid-columns: 1fr;
-        grid-template-columns: 1fr
+        grid-template-columns: 1fr;
     }
 
     .barra-inferior {

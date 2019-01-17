@@ -774,6 +774,7 @@ textarea.w-select {
 .w-container {
   margin: auto;
   padding: 2%;
+  height: 50vh;
   justify-content: center;
   align-self: center;
   max-width: 60%;
@@ -1254,7 +1255,7 @@ textarea.w-select {
 
 .w-slider {
   position: relative;
-  height: ;
+  height: auto;
   text-align: center;
   background: #dddddd;
   clear: both;
@@ -1275,10 +1276,10 @@ textarea.w-select {
 
 .w-slide {
   position: relative;
-  display: inline-block;
+  display: inline;
   vertical-align: top;
   width: auto;
-  height: auto;
+  height: 100%;
   white-space: normal;
   text-align: left;
 }
