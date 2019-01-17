@@ -1,7 +1,6 @@
 class User < ApplicationRecord
-
   validates :email, presence: true, uniqueness: true
-  validates :password, length: {minimum: 5}
+  validates :password, length: { minimum: 5 }
 
   has_one :profile
 
@@ -13,7 +12,6 @@ class User < ApplicationRecord
   after_create :init
 
   def init
-    Profile.create(user: self)
+    self.profile = Profile.create(user: self)
   end
-
 end

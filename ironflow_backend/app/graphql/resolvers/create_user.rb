@@ -24,10 +24,12 @@ module Resolvers
         )
 
       end
-      # return unless user.authenticate(input[:password])
+
+      @token = Adapter::Auth.new.encode_token("user_id: #{@user.id}")
 
       OpenStruct.new(
-        user: @user
+        user: @user,
+        token: @token
       )
     end
   end
@@ -44,7 +46,7 @@ module Resolvers
     end
 
     def call(_obj, args, _ctx)
-      user = User.find email: args[:user][:email]
+      user = User.find_by email: args[:user][:email]
 
       # ensures we found the user
       unless user
@@ -60,10 +62,44 @@ module Resolvers
       end
       # return unless user.authenticate(input[:password])
 
-      # token = Adapter::Auth.new.encode_token("user_id: #{@user.id}")
+      token = Adapter::Auth.new.encode_token("user_id: #{user.id}")
 
       OpenStruct.new(
-        user: user
+        user: user,
+        token: token
+      )
+    end
+  end
+  class AddHobby < GraphQL::Function
+    # TODO: define return fields
+
+    argument :token, !types.String
+    argument :hobbies, -> { !types[!types.String] }
+
+    type do
+      name 'AddHobbyResponse'
+
+      field :errors, types.String
+    end
+
+    # TODO: define resolve method
+    def call(_obj, _args, _ctx)
+      @user = _ctx.current_user
+
+      # ensures we created the user
+      unless @user
+        return OpenStruct.new(
+          errors: 'invalid token'
+        )
+
+      end
+
+      _args[:hobbies].each do |hobby|
+        HobbyProfile.create(hobby_id: hobby, profile: @user.profile)
+      end
+
+      OpenStruct.new(
+        errors: nil
       )
     end
   end
