@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, Link } from "react-router-dom";
 import logo from "../images/logo.png";
 import "../css/NavBar.css";
 
@@ -26,60 +26,46 @@ class NavBar extends Component {
           </div>
         </div>
         <div className="navbar-link navbar-spacer" />
-        <a
-          href="https://about.beautiful.ai/#how-it-works"
-          className="navbar-link underline hider"
-        >
-          how it works
-        </a>
-        <a
-          href="https://about.beautiful.ai/templates"
-          className="navbar-link underline hider"
-        >
-          templates
-        </a>
-        <a
-          href="https://about.beautiful.ai/pricing"
-          className="navbar-link underline hider"
-        >
-          Pricing
-        </a>
-        <a
-          href="https://about.beautiful.ai/about"
-          className="navbar-link underline hider"
-        >
+
+        <Link to="home" className="navbar-link underline hider">
+          Feed
+        </Link>
+        <Link to="ask" className="navbar-link underline hider">
+          Ask a Question
+        </Link>
+        <Link to="about" className="navbar-link underline hider">
           About
-        </a>
-        <a
-          href="https://blog.beautiful.ai"
+        </Link>
+        <Link
+          to="https://blog.beautiful.ai"
           className="navbar-link underline hider"
         >
-          Blog
-        </a>
-        <a
+          Blogs
+        </Link>
+        <Link
           id="navbar-signup"
-          href="https://www.beautiful.ai/signup"
+          to="https://www.beautiful.ai/signup"
           className="navbar-link navbar-link-signup signup-button"
         >
           sign up
-        </a>
-        <a
+        </Link>
+        <Link
           id="go-to-library"
-          href="https://www.beautiful.ai/login"
+          to="https://www.beautiful.ai/login"
           className="navbar-link navbar-link-go-to-library"
         >
-          go to your Library
-        </a>
-        <a href="#" id="navbar-logout" className="navbar-link logout-button">
+          go to your profile
+        </Link>
+        <Link to="#" id="navbar-logout" className="navbar-link logout-button">
           LOG OUT
-        </a>
-        <a
-          href="https://www.beautiful.ai/login"
+        </Link>
+        <Link
+          to="https://www.beautiful.ai/login"
           id="navbar-login"
           className="navbar-link underline"
         >
           Log In
-        </a>
+        </Link>
       </div>
     );
   }
