@@ -2,11 +2,17 @@ import React, { Component, Fragment } from "react";
 import Login from "./components/registration/login";
 import Home from "./components/Home";
 import Profile from "./components/Profile";
-import { Route, Switch } from "react-router-dom";
+import {fetchQuestions} from './redux/actions/questions'
+import {connect} from 'react-redux'
+import { Route, Switch,withRouter } from "react-router-dom";
 
 import NavBar from './components/NavBar'
 
 class App extends Component {
+
+  componentDidMount(){
+    this.props.fetchQuestions()
+  }
   render() {
     return (
       <Fragment>
@@ -21,4 +27,10 @@ class App extends Component {
   }
 }
 
-export default App;
+
+
+
+
+
+
+export default withRouter(connect(null,{fetchQuestions})(App));

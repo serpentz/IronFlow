@@ -15,4 +15,10 @@ Types::QueryType = GraphQL::ObjectType.define do
         end
       end
 
+  field :questions, !types[Types::QuestionType] do
+    resolve -> (_obj, args, _ctx) do
+        Question.all
+      end
+    end
+
   end

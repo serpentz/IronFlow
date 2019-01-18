@@ -1,0 +1,16 @@
+import {createStore, applyMiddleware, compose, combineReducers} from 'redux'
+
+import thunk from 'redux-thunk'
+import userReducer from "./reducers/user"
+import questionsReducer from "./reducers/questions"
+
+
+
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+let devtools =  composeEnhancers(applyMiddleware(thunk))
+
+
+export default createStore(combineReducers({
+  user: userReducer,
+  questions: questionsReducer
+}),devtools)

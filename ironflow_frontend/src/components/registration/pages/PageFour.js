@@ -6,21 +6,21 @@ export default class PageFour extends Component {
     return (
       <div
         className="step w-slide"
-        
+
       >
         <div className="collaborate-form-step">
           <div className="form-content">
             <div
               data-ix="show-content-onslide"
               className="form-section-title"
-              
+
             >
               Specify your Team a name
             </div>
             <div
               data-ix="show-content-onslide"
               className="form-title-line"
-              
+
             />
             <input
               type="text"
@@ -33,13 +33,13 @@ export default class PageFour extends Component {
               placeholder="Team Name"
               id="team-name"
               required=""
-             
+
             />
           </div>
           <div
             data-ix="show-content-onslide"
             className="step-counter"
-           
+
           >
             4/5
           </div>

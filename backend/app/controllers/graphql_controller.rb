@@ -4,14 +4,14 @@ class GraphqlController < ApplicationController
     variables = ensure_hash(params[:variables])
     query = params[:query]
     operation_name = params[:operationName]
-    @token = request.headers['Authorization'] ? request.headers['Authorization'].split(' ')[1] : nil
+    # @token = request.headers['Authorization'] ? request.headers['Authorization'].split(' ')[1] : nil
 
     context = {
       # Query context goes here, for example:
-      current_user: Adapter::Auth.new.current_user(@token)
+      # current_user: Adapter::Auth.new.current_user(@token)
     }
 
-    byebug
+
 
     result = BackendSchema.execute(query, variables: variables, context: context, operation_name: operation_name)
     render json: result

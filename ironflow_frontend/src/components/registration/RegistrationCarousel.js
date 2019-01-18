@@ -58,8 +58,8 @@ class RegistrationCarousel extends Component {
                                 <div className="form-content">
                                     <div className="form-section-title" data-ix="show-content-onslide" >Please fill in your details</div>
                                     <div className="form-title-line" data-ix="show-content-onslide" ></div>
-                                    
-                                    
+
+
                                 </div>
                                 <div className="step-counter" data-ix="show-content-onslide" >1/5</div>
                             </div>
@@ -82,24 +82,24 @@ class RegistrationCarousel extends Component {
                                     <div className="form-row w-row" data-ix="show-content-onslide" >
                                         <div className="col w-col w-col-6 w-col-stack">
                                             <div className="checkbox-wrapper w-checkbox">
-                                                
+
                                                 <label className="checkbox-label w-form-label" for="UI-Design">UI Design</label>
                                                 <div className="checkbox-active-overlay"></div>
                                             </div>
                                             <div className="checkbox-wrapper w-checkbox">
-                                                
+
                                                 <label className="checkbox-label w-form-label" for="Marketing-Site">Marketing Site</label>
                                                 <div className="checkbox-active-overlay"></div>
                                             </div>
                                         </div>
                                         <div className="col w-col w-col-6 w-col-stack">
                                             <div className="checkbox-wrapper w-checkbox">
-                                                
+
                                                 <label className="checkbox-label w-form-label" for="UI-Development">UI Development</label>
                                                 <div className="checkbox-active-overlay"></div>
                                             </div>
                                             <div className="checkbox-wrapper w-checkbox">
-                                                
+
                                                 <label className="checkbox-label w-form-label" for="General">Grab a beer</label>
                                                 <div className="checkbox-active-overlay"></div>
                                             </div>
@@ -114,10 +114,10 @@ class RegistrationCarousel extends Component {
                                 <div className="form-content">
                                     <div className="form-section-title" data-ix="show-content-onslide" >Specify your time-frame</div>
                                     <div className="form-title-line" data-ix="show-content-onslide" ></div><span className="irs js-irs-1 irs-with-grid"><span className="irs"><span className="irs-line" tabindex="-1"><span className="irs-line-left"></span><span className="irs-line-mid"></span><span className="irs-line-right"></span></span><span className="irs-min" >0</span><span className="irs-max" >1</span><span className="irs-from" >0</span><span className="irs-to" >0</span><span className="irs-single" >± 1 month(s)</span></span><span className="irs-grid" ><span className="irs-grid-pol" ></span><span className="irs-grid-text js-grid-text-0" >0</span><span className="irs-grid-pol small" ></span><span className="irs-grid-pol small" ></span><span className="irs-grid-pol small" ></span><span className="irs-grid-pol small" ></span><span className="irs-grid-pol" ></span><span className="irs-grid-text js-grid-text-1" >4.5</span><span className="irs-grid-pol small" ></span><span className="irs-grid-pol small" ></span><span className="irs-grid-pol small" ></span><span className="irs-grid-pol small" ></span><span className="irs-grid-pol" ></span><span className="irs-grid-text js-grid-text-2" >9</span><span className="irs-grid-pol small" ></span><span className="irs-grid-pol small" ></span><span className="irs-grid-pol small" ></span><span className="irs-grid-pol small" ></span><span className="irs-grid-pol" ></span><span className="irs-grid-text js-grid-text-3" >13.5</span><span className="irs-grid-pol small" ></span><span className="irs-grid-pol small" ></span><span className="irs-grid-pol small" ></span><span className="irs-grid-pol small" ></span><span className="irs-grid-pol" ></span><span className="irs-grid-text js-grid-text-4" >18</span></span><span className="irs-bar" ></span><span className="irs-bar-edge"></span><span className="irs-shadow shadow-single" ></span><span className="irs-slider single" ></span></span>
-                                    
+
                                     <div className="extra-option-wrap">
                                         <div className="checkbox-square checkbox-wrapper w-checkbox">
-                                            
+
                                             <label className="checkbox-label no-label w-form-label" for="Long-term-partnership"></label>
                                             <div className="checkbox-active-overlay square-overlay"></div>
                                         </div>
@@ -132,11 +132,11 @@ class RegistrationCarousel extends Component {
                                 <div className="final form-content">
                                     <div className="form-section-title" data-ix="show-content-onslide" >Specify your budget</div>
                                     <div className="form-title-line" data-ix="show-content-onslide" ></div><span className="irs js-irs-0 irs-with-grid"><span className="irs"><span className="irs-line" tabindex="-1"><span className="irs-line-left"></span><span className="irs-line-mid"></span><span className="irs-line-right"></span></span><span className="irs-min" >0</span><span className="irs-max" >1</span><span className="irs-from" >0</span><span className="irs-to" >0</span><span className="irs-single" >$2 500+</span></span><span className="irs-grid" ><span className="irs-grid-pol" ></span><span className="irs-grid-text js-grid-text-0" >2 000</span><span className="irs-grid-pol small" ></span><span className="irs-grid-pol small" ></span><span className="irs-grid-pol small" ></span><span className="irs-grid-pol small" ></span><span className="irs-grid-pol" ></span><span className="irs-grid-text js-grid-text-1" >7 750</span><span className="irs-grid-pol small" ></span><span className="irs-grid-pol small" ></span><span className="irs-grid-pol small" ></span><span className="irs-grid-pol small" ></span><span className="irs-grid-pol" ></span><span className="irs-grid-text js-grid-text-2" >13 500</span><span className="irs-grid-pol small" ></span><span className="irs-grid-pol small" ></span><span className="irs-grid-pol small" ></span><span className="irs-grid-pol small" ></span><span className="irs-grid-pol" ></span><span className="irs-grid-text js-grid-text-3" >19 250</span><span className="irs-grid-pol small" ></span><span className="irs-grid-pol small" ></span><span className="irs-grid-pol small" ></span><span className="irs-grid-pol small" ></span><span className="irs-grid-pol" ></span><span className="irs-grid-text js-grid-text-4" >25 000</span></span><span className="irs-bar" ></span><span className="irs-bar-edge"></span><span className="irs-shadow shadow-single" ></span><span className="irs-slider single" ></span></span>
-                                    
-                                    
+
+
                                     <div className="extra-option-wrap">
                                         <div className="checkbox-square checkbox-wrapper w-checkbox">
-                                            
+
                                             <label className="checkbox-label no-label w-form-label" for="Shared-Equity-Models"></label>
                                             <div className="checkbox-active-overlay square-overlay"></div>
                                         </div>
