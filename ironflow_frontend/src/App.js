@@ -5,6 +5,7 @@ import Profile from "./components/Profile";
 import {fetchQuestions} from './redux/actions/questions'
 import {connect} from 'react-redux'
 import { Route, Switch,withRouter } from "react-router-dom";
+import AskQuestion from './components/AskQuestion'
 
 import NavBar from './components/NavBar'
 
@@ -19,6 +20,7 @@ class App extends Component {
        <NavBar />
       <Switch>
         <Route path="/Registration" component={Login} />
+        <Route path="/ask" component={AskQuestion} />
         <Route path="/profile" component={Profile} />
         <Route path="/" component={Home} />
       </Switch>

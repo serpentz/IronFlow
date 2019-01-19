@@ -129,7 +129,42 @@ module Resolvers
       end
 
       _args[:skills].each do |skill|
-        ProfilesSkill.create(skill_id: skill, profile: @user.profile)
+        ProfilesSkill.create_or_find_by(skill_id: skill, profile: @user.profile)
+      end
+
+      OpenStruct.new(
+        errors: nil
+      )
+    end
+  end
+  class CreateQuestion < GraphQL::Function
+    # TODO: define return fields
+    QuestionInputType = GraphQL::InputObjectType.define do
+      name 'QuestionInput'
+
+      argument :statement, types.String
+      argument :category, types.String
+    end
+
+
+    argument :question, !QuestionInputType
+
+
+    type do
+      name 'AddQuestion'
+
+      field :errors, types.String
+    end
+
+    # TODO: define resolve method
+    def call(_obj, _args, _ctx)
+      @question = Question.create statement: _args[:question][:statement], user: User.last,categories: [Category.find_or_create_by(title: _args[:question][:category])]
+
+      # ensures we created the user
+      unless @question.valid?
+        return OpenStruct.new(
+          errors: "#{@question.errors.full_messages.join(", ")}"
+        )
       end
 
       OpenStruct.new(

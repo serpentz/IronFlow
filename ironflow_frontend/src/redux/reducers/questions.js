@@ -16,7 +16,7 @@ const questionsReducer = (oldState = initialState, action) => {
   case "CREATE_QUESTION_ATTEMPT": return oldState
   case "CREATE_QUESTION_RESPONSE":
     if (action.payload){
-                return {...oldState,success: action.payload}
+                return {...oldState, errors: action.payload}
             } else {
                 return oldState
             }

@@ -4,12 +4,25 @@ import { request } from 'graphql-request'
 
 
 
-const createQuestion = (mutation) => {
+const createQuestion = (question) => {
+
+let  mutation = `question: ${JSON.stringify(question).replace(/\"([^(\")"]+)\":/g,"$1:")}`
+
+debugger
+
+  let formatedMutation = `mutation {
+                            createQuestion(${mutation}){
+                              errors
+                            }
+                          }`
   return dispatch => {
      dispatch({type: "CREATE_QUESTION_ATTEMPT"})
-     return request(GRAPH_QL_ENDPOINT,mutation)
+
+
+     return request(GRAPH_QL_ENDPOINT,formatedMutation)
              .then(response => {
-               dispatch({type: "CREATE_QUESTION_RESPONSE", payload: response.data})
+
+               dispatch({type: "CREATE_QUESTION_RESPONSE", payload: response.error})
              })
 
   }
