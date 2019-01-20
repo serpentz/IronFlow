@@ -1,7 +1,8 @@
 import React, { Component, Fragment } from "react";
 import Login from "./components/registration/login";
-import Home from "./components/Home";
+import Main from "./components/Main";
 import Profile from "./components/Profile";
+import Question from "./components/QuestionPage";
 import {fetchQuestions} from './redux/actions/questions'
 import {connect} from 'react-redux'
 import { Route, Switch,withRouter } from "react-router-dom";
@@ -20,9 +21,10 @@ class App extends Component {
        <NavBar />
       <Switch>
         <Route path="/Registration" component={Login} />
+        <Route path="/question" component={Question} />
         <Route path="/ask" component={AskQuestion} />
         <Route path="/profile" component={Profile} />
-        <Route path="/" component={Home} />
+        <Route path="/" component={Main} />
       </Switch>
       </Fragment>
     );

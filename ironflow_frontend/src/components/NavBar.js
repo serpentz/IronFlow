@@ -28,7 +28,7 @@ class NavBar extends Component {
         <div className="navbar1-link navbar1-spacer" />
 
         <Link to="home" className="navbar1-link underline hider">
-          Feed
+          Home
         </Link>
         <Link to="ask" className="navbar1-link underline hider">
           Ask a Question
@@ -44,7 +44,7 @@ class NavBar extends Component {
           to="/registration"
           className="navbar1-link signup-button"
         >
-          sign up / log in 
+          sign up / log in
         </Link>
       </div>
     );
