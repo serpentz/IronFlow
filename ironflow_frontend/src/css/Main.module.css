@@ -2297,6 +2297,8 @@ a {
 
 .airdrop-logo {
     display: inline-block;
+    background-color: #f5f6fa;
+    padding: 2%;
     margin-top: 20px;
     margin-left: 20px;
     border-radius: 12px;

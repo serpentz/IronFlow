@@ -2,6 +2,8 @@ import React, { Component, Fragment } from "react";
 
 import { Route, Switch, Link } from "react-router-dom";
 import logo from "../images/logo.png";
+import AutoComplete from './AutoComplete'
+
 import "../css/NavBar.css";
 import "../css/Modal.css";
 
@@ -15,6 +17,9 @@ class NavBar extends Component {
   setCurrentUser = () => {
     this.setState({ user: !this.state.user });
   };
+  componentDidMount(){
+
+  }
   render() {
     return (
       <Fragment>
@@ -193,14 +198,17 @@ class NavBar extends Component {
               <div className="modal-body mx-3">
                 <div className="md-form mb-5">
                   <i className="fas fa-tag prefix grey-text" />
-                  <input
+                  <AutoComplete
+                    
                     type="text"
-                    id="form32"
+                    autocomplete="on"
+                    id="form-autocomplete"
                     className="form-control validate"
+                    placeholder="Subject"
+
                   />
-                  <label data-error="wrong" data-success="right" for="form32">
-                    Subject
-                  </label>
+
+
                 </div>
 
                 <div className="md-form">

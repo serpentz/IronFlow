@@ -23,11 +23,11 @@ class Top extends Component {
                   <div className={cx(styles["collection-item-2"],styles["w-dyn-item"],styles["w-col"],styles["w-col-4"])}>
                      <Link to="feed" className={cx(styles["link-block-9"],styles["w-inline-block"])}>
                         <div data-w-id="9500215a-a292-d698-329e-beee844bc1e5" className={cx(styles["div-airdrop-list"])}>
-                           <img width="80" height="80" alt="TRON" src="https://global-uploads.webflow.com/5ba8d21231e0097188d032e7/5c3ffbeb42565d8136188a9a_tron%20airdrop%20ico%20bounty.jpg" className={cx(styles["airdrop-logo"])}/>
-                           <h1 className={cx(styles["airdrop-name"])}>TRON</h1>
-                           <div className={cx(styles["category"],styles["featured-list"])}>Cryptocurrency</div>
-                           <div style={{"background-color":"#6a69e1"}} className={cx(styles["label"])}>Airdrop</div>
-                           <div className={cx(styles["airdrop-value"])}>$0.05</div>
+                           <img width="80" height="80" alt="TRON" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Ruby_logo.svg/2000px-Ruby_logo.svg.png" className={cx(styles["airdrop-logo"])}/>
+                           <h1 className={cx(styles["airdrop-name"])}>Ruby</h1>
+
+                           <div style={{"background-color":"#6a69e1"}} className={cx(styles["label"])}>Back-end</div>
+
 
                         </div>
                      </Link>
@@ -35,11 +35,11 @@ class Top extends Component {
                   <div className={cx(styles["collection-item-2"],styles["w-dyn-item"],styles["w-col"],styles["w-col-4"])}>
                     <Link to="feed" className={cx(styles["link-block-9"],styles["w-inline-block"])}>
                         <div data-w-id="9500215a-a292-d698-329e-beee844bc1e5" className={cx(styles["div-airdrop-list"])}>
-                           <img width="80" height="80" alt="Insights Network" src="https://global-uploads.webflow.com/5ba8d21231e0097188d032e7/5c372334440f21642fb9d27e_insight%20network%20airdrop%20ico%20bounty.jpg" className={cx(styles["airdrop-logo"])}/>
-                           <h1 className={cx(styles["airdrop-name"])}>Insights"],styles["Network</h1>
-                           <div className={cx(styles["category"],styles["featured-list"])}>Exchange</div>
-                           <div style={{"background-color":"blue"}} className={cx(styles["label"])}> Ask a Question</div>
-                           <div className={cx(styles["airdrop-value"])}>$0.18</div>
+                           <img  width="80" height="80" alt="Coinsquare" src="https://hackr.io/assets/images/hacknlearn/react-logo.svg" className={cx(styles["airdrop-logo"])}/>
+                           <h1 className={cx(styles["airdrop-name"])}>React.js</h1>
+
+                           <div style={{"background-color":"blue"}} className={cx(styles["label"])}> Front-end</div>
+
 
                         </div>
                      </Link>
@@ -47,10 +47,10 @@ class Top extends Component {
                   <div className={cx(styles["collection-item-2"],styles["w-dyn-item"],styles["w-col"],styles["w-col-4"])}>
                     <Link to="feed" className={cx(styles["link-block-9"],styles["w-inline-block"])}>
                         <div data-w-id="9500215a-a292-d698-329e-beee844bc1e5" className={cx(styles["div-airdrop-list"])}>
-                           <img width="80" height="80" alt="KELTA" src="https://global-uploads.webflow.com/5ba8d21231e0097188d032e7/5c332f0cff1c075afaa09387_kelta%20mining%20data%20center.001.jpeg" className={cx(styles["airdrop-logo"])}/>
-                           <h1 className={cx(styles["airdrop-name"])}>KELTA</h1>
-                           <div className={cx(styles["category"],styles["featured-list"])}>Mining</div>
-                           <div style={{"background-color":"blue"}} className={cx(styles["label"])}> Ask a Question</div>
+                           <img width="80" height="80" alt="KELTA" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRf7fU8g5NhqQzrJhHfdeN_GFDwZz9vpJi8D6uRWGyhCrxNo7fH" className={cx(styles["airdrop-logo"])}/>
+                           <h1 className={cx(styles["airdrop-name"])}>Ruby on Rails</h1>
+
+                           <div style={{"background-color":"blue"}} className={cx(styles["label"])}> Web Development </div>
                            <div className={cx(styles["airdrop-value"],styles["w-dyn-bind-empty"])}></div>
 
                         </div>
@@ -59,10 +59,10 @@ class Top extends Component {
                   <div className={cx(styles["collection-item-2"],styles["w-dyn-item"],styles["w-col"],styles["w-col-4"])}>
                      <Link to="feed" className={cx(styles["link-block-9"],styles["w-inline-block"])}>
                         <div data-w-id="9500215a-a292-d698-329e-beee844bc1e5" className={cx(styles["div-airdrop-list"])}>
-                           <img width="80" height="80" alt="Coinsquare" src="https://global-uploads.webflow.com/5ba8d21231e0097188d032e7/5c25d59375fcbd31fd6e49e9_coinsquare%20refer%20%26%20earn.png" className={cx(styles["airdrop-logo"])}/>
-                           <h1 className={cx(styles["airdrop-name"])}>Coinsquare</h1>
-                           <div className={cx(styles["category"],styles["featured-list"])}>Exchange</div>
-                           <div style={{"background-color":"blue"}} className={cx(styles["label"])}> Ask a Question</div>
+                           <img width="80" height="80" alt="Coinsquare" src="https://cdn-images-1.medium.com/max/1200/0*U2DmhXYumRyXH6X1.png" className={cx(styles["airdrop-logo"])}/>
+                           <h1 className={cx(styles["airdrop-name"])}>Redux</h1>
+
+                           <div style={{"background-color":"blue"}} className={cx(styles["label"])}> Data </div>
                            <div className={cx(styles["airdrop-value"],styles["w-dyn-bind-empty"])}></div>
 
                         </div>
@@ -71,10 +71,10 @@ class Top extends Component {
                   <div className={cx(styles["collection-item-2"],styles["w-dyn-item"],styles["w-col"],styles["w-col-4"])}>
                      <Link to="feed" className={cx(styles["link-block-9"],styles["w-inline-block"])}>
                         <div data-w-id="9500215a-a292-d698-329e-beee844bc1e5" className={cx(styles["div-airdrop-list"])}>
-                           <img width="80" height="80" alt="Wirex" src="https://global-uploads.webflow.com/5ba8d21231e0097188d032e7/5c25d3d5b482f94fd269df68_wirex%20refer%20%26%20earn.png" sizes="80px" srcset="https://global-uploads.webflow.com/5ba8d21231e0097188d032e7/5c25d3d5b482f94fd269df68_wirex%20refer%20%26%20earn-p-500.png 500w, https://global-uploads.webflow.com/5ba8d21231e0097188d032e7/5c25d3d5b482f94fd269df68_wirex%20refer%20%26%20earn.png 750w" className={cx(styles["airdrop-logo"])}/>
-                           <h1 className={cx(styles["airdrop-name"])}>Wirex</h1>
-                           <div className={cx(styles["category"],styles["featured-list"])}>Exchange</div>
-                           <div style={{"background-color":"blue"}} className={cx(styles["label"])}> Ask a Question</div>
+                           <img width="80" height="80" alt="Wirex" src="https://slack-files2.s3-us-west-2.amazonaws.com/avatars/2018-07-10/396072065317_f8b9a63ed67ca0368c6e_512.png" sizes="80px" className={cx(styles["airdrop-logo"])}/>
+                           <h1 className={cx(styles["airdrop-name"])}> Heroku </h1>
+
+                           <div style={{"background-color":"blue"}} className={cx(styles["label"])}> Deployment </div>
                            <div className={cx(styles["airdrop-value"],styles["w-dyn-bind-empty"])}></div>
 
                         </div>
@@ -83,10 +83,10 @@ class Top extends Component {
                   <div className={cx(styles["collection-item-2"],styles["w-dyn-item"],styles["w-col"],styles["w-col-4"])}>
                     <Link to="feed" className={cx(styles["link-block-9"],styles["w-inline-block"])}>
                         <div data-w-id="9500215a-a292-d698-329e-beee844bc1e5" className={cx(styles["div-airdrop-list"])}>
-                           <img width="80" height="80" alt="Grupeer" src="https://global-uploads.webflow.com/5ba8d21231e0097188d032e7/5c25d06fb482f9226869df50_gurper%20refer%20%26%20earn.png" sizes="80px" srcset="https://global-uploads.webflow.com/5ba8d21231e0097188d032e7/5c25d06fb482f9226869df50_gurper%20refer%20%26%20earn-p-500.png 500w, https://global-uploads.webflow.com/5ba8d21231e0097188d032e7/5c25d06fb482f9226869df50_gurper%20refer%20%26%20earn-p-800.png 800w, https://global-uploads.webflow.com/5ba8d21231e0097188d032e7/5c25d06fb482f9226869df50_gurper%20refer%20%26%20earn.png 960w" className={cx(styles["airdrop-logo"])}/>
-                           <h1 className={cx(styles["airdrop-name"])}>Grupeer</h1>
-                           <div className={cx(styles["category"],styles["featured-list"])}>Exchange</div>
-                           <div style={{"background-color":"blue"}} className={cx(styles["label"])}> Ask a Question</div>
+                           <img width="90" height="80" alt="Grupeer" src="https://cdn.freebiesupply.com/logos/large/2x/react-native-firebase-1-logo-png-transparent.png" className={cx(styles["airdrop-logo"])}/>
+                           <h1 className={cx(styles["airdrop-name"])}>React Native</h1>
+
+                           <div style={{"background-color":"blue"}} className={cx(styles["label"])}> Mobile </div>
                            <div className={cx(styles["airdrop-value"],styles["w-dyn-bind-empty"])}></div>
 
                         </div>
