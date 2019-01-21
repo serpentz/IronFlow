@@ -2348,7 +2348,7 @@ a {
     margin-top: 50px;
     margin-right: 0px;
     margin-left: 20px;
-    font-size: 16px;
+    font-size: 10px;
     line-height: 16px;
     text-decoration: none;
 }
@@ -2397,7 +2397,7 @@ a {
     align-items: flex-end;
     -webkit-align-content: stretch;
     -ms-flex-line-pack: stretch;
-    align-content: stretch;
+    align-content: left;
     border-radius: 2px;
     color: #fff;
     font-size: 10px;
@@ -2582,13 +2582,13 @@ a {
 }
 
 .div-block-4 {
-    height: 210px;
+    height: 180px;
     background-color: #fff;
 }
 
 .div-block-4.vertical {
     width: 170px;
-    height: 225px;
+
     margin-left: 0px;
     border: 1px solid transparent;
     border-radius: 4px;

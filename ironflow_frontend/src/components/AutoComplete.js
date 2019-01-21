@@ -52,7 +52,7 @@ const styles = theme => ({
   root: {
     flexGrow: 1,
     height: "auto",
-    paddingTop: "5%"
+    padding: "15%"
   },
   input: {
     display: 'flex',
@@ -230,13 +230,13 @@ class IntegrationReactSelect extends React.Component {
     };
 
     return (
-      <div className={classes.root} style={{height: "10%"}} >
-        <NoSsr>
+      <div className={classes.root} >
+        <NoSsr
+        >
           <Select
             classes={classes}
             styles={selectStyles}
             textFieldProps={{
-              label: 'Category',
               InputLabelProps: {
                 shrink: true,
               },
@@ -244,8 +244,9 @@ class IntegrationReactSelect extends React.Component {
             options={suggestions}
             components={components}
             value={this.state.multi}
+            height="20%"
             onChange={this.handleChange('multi')}
-            placeholder="Select One or more Categories"
+            placeholder="Select one or more category"
             isMulti
           />
         </NoSsr>

@@ -196,10 +196,16 @@ class NavBar extends Component {
                 </button>
               </div>
               <div className="modal-body mx-3">
-                <div className="md-form mb-5">
-                  <i className="fas fa-tag prefix grey-text" />
+                <div className="md-form mb-3">
+                  <i className="fas fa-tag prefix grey-text"> </i>
+                  <label data-error="wrong" data-success="right" for="form-autocomplete">
+                    Category
+                  </label>
+                  <label data-error="wrong" data-success="right" for="form-autocomplete">
+                    Category
+                  </label>
                   <AutoComplete
-                    
+
                     type="text"
                     autocomplete="on"
                     id="form-autocomplete"
@@ -222,6 +228,7 @@ class NavBar extends Component {
                   <label data-error="wrong" data-success="right" for="form8">
                     Your Question.
                   </label>
+
                 </div>
               </div>
 
