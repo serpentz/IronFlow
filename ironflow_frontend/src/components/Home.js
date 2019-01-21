@@ -26,9 +26,7 @@ export default class Home extends Component {
         width="0"
       />
     </div>
-    <p className={styles["paragraph-crypto-loader"]}>PLEASE&nbsp;WAIT</p>
-    <div className={styles["loading-title-2"]}>IRON FLOW</div>
-    <p className={styles["paragraph-crypto-loader"]}>BY ABSALOM CHERINET</p>
+
   </div>
   <div className={styles["body-custom-crypto"]}>
     <div className={styles["hero-1-crypto"]}>
@@ -49,13 +47,7 @@ export default class Home extends Component {
       <div className={styles["section-hero-top-crypto"]}>
         <div className={styles["div-s1-title-intro"]}>
           <div className={styles["div-block-4"]}>
-            <h1 className={cx(styles["h1"],styles["text-white"])}>
-              Welcome to <strong> IronFlow</strong>
-            </h1>
-            <p className={styles["paragraph-aa"]}>
-              A service provided by <strong>Students</strong> for{" "}
-              <strong>Students</strong>
-            </p>
+
           </div>
         </div>
       </div>
@@ -63,39 +55,13 @@ export default class Home extends Component {
 
     <div className={styles["container-crypto"]}>
       <div className={styles["div-block-11"]}>
-        <section id="Hello-Crypto" className={styles["separator-cat-9"]}>
-          <div className={styles["line-2"]}>
-            <div className={cx(styles["line"], styles["line-horizontale-short"])} />
-          </div>
 
-          <div className={styles["line-2"]}>
-            <div className={cx(styles["line"], styles["line-horizontale-short"])} />
-          </div>
-        </section>
         <div
           data-duration-in="300"
           data-duration-out="100"
           className={cx(styles["tabs-2"],styles["w-tabs"])}
         >
-          <div className={cx(styles["tab-menu"], styles["w-tab-menu"])}>
-            <a
-              data-w-tab="News"
-              className={[
-                styles["tab-link"],styles["w-inline-block-block"],styles["w-tab-link"],styles["w--current"]
-              ]}
-            >
-              <div>Top</div>
-            </a>
-            <a className={cx(styles["tab-link"], styles["w-inline-block-block"], styles["w-tab-link"])}>
-              <div className={styles["text-block-8"]}>Recent</div>
-            </a>
-            <a className={cx(styles["tab-link"], styles["w-inline-block-block"], styles["w-tab-link"])}>
-              <div>Unanswered</div>
-            </a>
-            <a className={cx(styles["tab-link"], styles["w-inline-block-block"], styles["w-tab-link"])}>
-              <div>Project Ideas</div>
-            </a>
-          </div>
+
           <div className={styles["w-tab-content"]}>
             <div
               data-w-tab="News"

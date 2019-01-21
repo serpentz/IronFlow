@@ -4574,7 +4574,7 @@ a {
     display: -ms-flexbox;
     display: flex;
     overflow: visible;
-    height: 135px;
+    height: 50vh;
     min-width: 1890px;
     margin-right: auto;
     margin-left: auto;
@@ -4589,7 +4589,6 @@ a {
 }
 
 .section-9 {
-    margin-top: 40px;
     padding-right: 20px;
     padding-left: 20px;
 }

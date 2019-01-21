@@ -2,8 +2,8 @@
 import React, { Component, Fragment } from "react";
 import {Link} from 'react-router-dom'
 import cx from 'classnames';
-import styles from '../css/Main.module.css'
 import Comments from './Comments'
+import styles from '../css/Main.module.css'
 import commentStyles from '../css/Comments.module.css'
 
 class QuestionPage extends Component {
@@ -153,6 +153,7 @@ class QuestionPage extends Component {
                       <div className={cx(styles["airdrop-information"],styles["_1"])}>
                           <Comments />
                       </div>
+
                   </div>
               </div>
 

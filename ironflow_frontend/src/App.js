@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from "react";
 import Login from "./components/registration/login";
 import Main from "./components/Main";
+import Home from './components/Home'
 import Profile from "./components/Profile";
 import Question from "./components/QuestionPage";
 import {fetchQuestions} from './redux/actions/questions'
@@ -21,6 +22,7 @@ class App extends Component {
        <NavBar />
       <Switch>
         <Route path="/Registration" component={Login} />
+        <Route path="/feed" component={Home} />
         <Route path="/question" component={Question} />
         <Route path="/ask" component={AskQuestion} />
         <Route path="/profile" component={Profile} />

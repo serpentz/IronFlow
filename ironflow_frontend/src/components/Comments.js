@@ -8,22 +8,88 @@ import styles from '../css/Comments.module.css'
 class Comments extends Component {
   render() {
     return (
-      <div  className={cx(styles["section01"],styles["grey-section"])}>
-      <div  className={cx(styles["wrapper"],styles["w-container"])}>
-      <div data-ix="fade-up-1"  className={cx(styles["accordion"],styles["js-accordion"])}>
-      <div  className={cx(styles["accordion__item"],styles["js-accordion-item"],styles["active"])}>
-      <div  className={cx(styles["accordion-header"],styles["js-accordion-header"])}>
-      <img src="https://uploads-ssl.webflow.com/5b37d3935b093ef684ecd7c0/5b37e7ae476262769e7c15b4_help.svg" width="40"/>
-      <h5  className={cx(styles["question-text"])}>How much are logo designs?</h5>
-      </div>
-      <div data-ix="hide-on-load"  className={cx(styles["accordion-body"],styles["js-accordion-body"])} style={{display: "block"}}>
-      <div  className={cx(styles["accordion-body__contents"])}>Greetings, Exalted One. Allow me to introduce myself. I am Luke Skywalker, Jedi Knight and friend to Captain Solo. I know that you are powerful, mighty Jabba, and that your anger with Solo must be equally powerful. I seek an audience with Your Greatness to bargain for Solo's life. With your wisdom, I'm sure that we can work out an arrangement which will be mutually beneficial and enable us to avoid any unpleasant confrontation.</div>
-      </div>
-      </div>
-      </div>
-      </div>
-      </div>
 
+      <div className="ui small comments">
+        <h3 className="ui dividing header">Comments</h3>
+        <div className="comment">
+          <a className="avatar">
+            <img src="/images/avatar/small/matt.jpg"/>
+          </a>
+          <div className="content">
+            <a className="author">Matt</a>
+            <div className="metadata">
+              <span className="date">Today at 5:42PM</span>
+            </div>
+            <div className="text">
+              How artistic!
+            </div>
+            <div className="actions">
+              <a className="reply">Reply</a>
+            </div>
+          </div>
+        </div>
+        <div className="comment">
+          <a className="avatar">
+            <img src="/images/avatar/small/elliot.jpg"/>
+          </a>
+          <div className="content">
+            <a className="author">Elliot Fu</a>
+            <div className="metadata">
+              <span className="date">Yesterday at 12:30AM</span>
+            </div>
+            <div className="text">
+              <p>This has been very useful for my research. Thanks as well!</p>
+            </div>
+            <div className="actions">
+              <a className="reply">Reply</a>
+            </div>
+          </div>
+          <div className="comments">
+            <div className="comment">
+              <a className="avatar">
+                <img src="/images/avatar/small/jenny.jpg"/>
+              </a>
+              <div className="content">
+                <a className="author">Jenny Hess</a>
+                <div className="metadata">
+                  <span className="date">Just now</span>
+                </div>
+                <div className="text">
+                  Elliot you are always so right :)
+                </div>
+                <div className="actions">
+                  <a className="reply">Reply</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="comment">
+          <a className="avatar">
+            <img src="/images/avatar/small/joe.jpg"/>
+          </a>
+          <div className="content">
+            <a className="author">Joe Henderson</a>
+            <div className="metadata">
+              <span className="date">5 days ago</span>
+            </div>
+            <div className="text">
+              Dude, this is awesome. Thanks so much
+            </div>
+            <div className="actions">
+              <a className="reply">Reply</a>
+            </div>
+          </div>
+        </div>
+        <form className="ui reply form">
+          <div className="field">
+            <textarea></textarea>
+          </div>
+          <div className="ui blue labeled submit icon button">
+            <i className="icon edit"></i> Add Reply
+          </div>
+        </form>
+      </div>
     );
   }
 }

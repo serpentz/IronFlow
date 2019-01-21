@@ -9,7 +9,8 @@ export default class QuestionCard extends Component {
   render() {
 
     return (
-
+      <Link
+        to="/question" >
       <div className={cx(styles["row-twitter"], styles["w-row"])}>
           <div className={cx(styles["tag-wrapper"],styles["twitter-main-2"])}>
             <h1 className={styles["info-card"]}>Ruby</h1>
@@ -133,6 +134,7 @@ export default class QuestionCard extends Component {
             </div>
           </div>
           </div>
+          </Link>
 
 
 
