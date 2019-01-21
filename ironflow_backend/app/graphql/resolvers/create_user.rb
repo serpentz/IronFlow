@@ -15,7 +15,7 @@ module Resolvers
 
     # TODO: define resolve method
     def call(_obj, args, _ctx)
-      byebug
+
       @user = User.create args[:user].to_h
 
       # ensures we created the user
@@ -144,7 +144,10 @@ module Resolvers
 
       argument :statement, types.String
       argument :category, types.String
+
     end
+
+    argument :user,-> {Types::CurrentUserInputType}
 
 
     argument :question, !QuestionInputType
@@ -156,9 +159,18 @@ module Resolvers
       field :errors, types.String
     end
 
+
+
+
+
     # TODO: define resolve method
     def call(_obj, _args, _ctx)
-      @question = Question.create statement: _args[:question][:statement], user: User.last,categories: [Category.find_or_create_by(title: _args[:question][:category])]
+      @user =  User.find Adapter::Auth.new.decoded_token _args[:user][:token]
+
+
+      return unless @user
+
+      @question = Question.create statement: _args[:question][:statement], user: @user ,categories: [Category.find_or_create_by(title: _args[:question][:category])]
 
       # ensures we created the user
       unless @question.valid?
