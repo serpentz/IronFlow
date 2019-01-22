@@ -2731,8 +2731,8 @@ fieldset[disabled] .w-select {
     z-index: 15;
     display: -webkit-flex;
     display: flex;
-    margin-left: 2vh;
-    width: 69%;
+    margin-left: 5vh;
+    width: 60%;
     margin-top: -40vh;
     padding-top: 50px;
     padding-bottom: 70px;

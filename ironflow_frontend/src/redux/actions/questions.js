@@ -28,7 +28,7 @@ debugger
   }
 }
 
-const fetchQuestions = (query = `{ questions { id statement answers { id statement user {  id name email } } user { name email } } }`) => {
+const fetchQuestions = (query = `{ questions { categories { id title } id statement answers { id statement user {  id name email } } user { name email } } }`) => {
 
        return (dispatch) => {
            dispatch({type: "GET_QUESTIONS_ATTEMPT"})
