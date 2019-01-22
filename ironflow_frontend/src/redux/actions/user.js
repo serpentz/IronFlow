@@ -18,6 +18,7 @@ const login = (query) => {
            return fetch(GRAPH_QL_ENDPOINT, options(query))
                    .then(res => res.json())
                    .then(response => {
+                     // this.setToken(res)
                      dispatch({type: "LOGIN_RESPONSE", payload: response})
                    }
                    )
@@ -28,6 +29,7 @@ const login = (query) => {
 
 
 const logout = () => {
+  localStorage.clear()
   return { type: 'LOGOUT' }
 }
 

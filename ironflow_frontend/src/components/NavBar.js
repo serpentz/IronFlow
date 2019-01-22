@@ -9,10 +9,23 @@ import "../css/Modal.css";
 
 class NavBar extends Component {
   state = {
-    email: "",
-    password: "",
-    user: false
-  };
+      register: true,
+      question: {
+          statement: "",
+          category: ""
+      }
+
+  }
+
+handleChange = (e) => {
+  this.setState({...this.state, question: {...this.state.question, [e.target.name]: e.target.value}})
+}
+
+  handleCreateQuestionSubmit = (e) => {
+    e.preventDefault()
+
+        this.props.createQuestion(this.state.question)
+  }
 
   setCurrentUser = () => {
     this.setState({ user: !this.state.user });
@@ -130,15 +143,19 @@ class NavBar extends Component {
                     <input
                       type="email"
                       id="Form-email4"
+                      placeholder="Name"
                       className="form-control validate white-text"
                     />
-                    <label
-                      data-error="wrong"
-                      data-success="right"
-                      for="Form-email5"
-                    >
-                      Your email
-                    </label>
+
+                  </div>
+                  <div className="md-form mb-3">
+                    <input
+                      type="email"
+                      id="Form-email4"
+                      placeholder="Email"
+                      className="form-control validate white-text"
+                    />
+
                   </div>
 
                   <div className="md-form pb-3">

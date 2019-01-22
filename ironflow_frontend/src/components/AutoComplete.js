@@ -246,7 +246,7 @@ class IntegrationReactSelect extends React.Component {
             value={this.state.multi}
             height="20%"
             onChange={this.handleChange('multi')}
-            placeholder="Select one or more category"
+            placeholder="Select one or more categories"
             isMulti
           />
         </NoSsr>
