@@ -231,370 +231,101 @@ class QuestionPage extends Component {
             </div>
           </div>
         </div>
-        <div className={cx(styles["section-3"])}>
-          <div className={cx(styles["div-block-24"])}>
-            <div className={cx(styles["w-dyn-list"])}>
-              <div
-                className={cx(
-                  styles["trending-airdrop-list"],
-                  styles["w-dyn-items"],
-                  styles["w-row"]
-                )}
-              >
-                <div
-                  className={cx(
-                    styles["collection-item"],
-                    styles["w-dyn-item"],
-                    styles["w-col"],
-                    styles["w-col-2"]
-                  )}
-                >
-                  <a
-                    href="/airdrop/cresio"
-                    className={cx(
-                      styles["link-block-14"],
-                      styles["w-inline-block"]
-                    )}
-                  >
-                    <div
-                      className={cx(
-                        styles["div-block-4"],
-                        styles["vertical"],
-                        styles["div-block"]
-                      )}
-                    >
-                      <img
-                        width="75"
-                        height="75"
-                        alt="Airdrop"
-                        src="https://global-uploads.webflow.com/5ba8d21231e0097188d032e7/5c41f02a213386c9b7518a82_cresio%20airdrop%20ico%20bounty.jpg"
-                        className={cx(styles["image-2"])}
-                      />
-                      <h3
-                        className={cx(
-                          styles["airdrop-name"],
-                          styles["vertical"]
-                        )}
-                      >
-                                              </h3>
-                      <div
-                        style={{ "background-color": "rgb(247, 127, 0)" }}
-                        className={cx(
-                          styles["label"],
-                          styles["vertical-label"],
-                          styles["vertical-label-tablet"]
-                        )}
-                      >
-                        {" "}
-                        Airdrop
-                      </div>
-                      <div
-                        className={cx(styles["category"], styles["vertical"])}
-                      >
-                        Blockchain
-                      </div>
+
+        <Fragment>
 
 
-                    </div>
-                  </a>
-                </div>
-                <div
-                  className={cx(
-                    styles["collection-item"],
-                    styles["w-dyn-item"],
-                    styles["w-col"],
-                    styles["w-col-2"]
-                  )}
-                >
-                  <a
-                    href="/airdrop/v-trust"
-                    className={cx(
-                      styles["link-block-14"],
-                      styles["w-inline-block"]
-                    )}
-                  >
-                    <div
-                      className={cx(
-                        styles["div-block-4"],
-                        styles["vertical"],
-                        styles["div-block"]
-                      )}
-                    >
-                      <img
-                        width="75"
-                        height="75"
-                        alt="Airdrop"
-                        src="https://global-uploads.webflow.com/5ba8d21231e0097188d032e7/5c41557ee54faba74e5c96fa_vtrust%20airdrop%20ico%20bounty.jpg"
-                        className={cx(styles["image-2"])}
-                      />
-                      <h3
-                        className={cx(
-                          styles["airdrop-name"],
-                          styles["vertical"]
-                        )}
-                      >
-
-                      </h3>
-                      <div
-                        style={{ "background-color": "rgb(247, 127, 0)" }}
-                        className={cx(
-                          styles["label"],
-                          styles["vertical-label"],
-                          styles["vertical-label-tablet"]
-                        )}
-                      >
-                        {" "}
-                        Airdrop
-                      </div>
-                      <div
-                        className={cx(styles["category"], styles["vertical"])}
-                      >
-                        Exchange
-                      </div>
-
-
-                    </div>
-                  </a>
-                </div>
-                <div
-                  className={cx(
-                    styles["collection-item"],
-                    styles["w-dyn-item"],
-                    styles["w-col"],
-                    styles["w-col-2"]
-                  )}
-                >
-                  <a
-                    href="/airdrop/primexbt"
-                    className={cx(
-                      styles["link-block-14"],
-                      styles["w-inline-block"]
-                    )}
-                  >
-                    <div
-                      className={cx(
-                        styles["div-block-4"],
-                        styles["vertical"],
-                        styles["div-block"]
-                      )}
-                    >
-                      <img
-                        width="75"
-                        height="75"
-                        alt="Airdrop"
-                        src="https://global-uploads.webflow.com/5ba8d21231e0097188d032e7/5c40454d8edfba6595b159b2_primexbt%20airdrop%20ico%20bounty.png"
-                        sizes="75px"
-                        srcset="https://global-uploads.webflow.com/5ba8d21231e0097188d032e7/5c40454d8edfba6595b159b2_primexbt%20airdrop%20ico%20bounty-p-500.png 500w, https://global-uploads.webflow.com/5ba8d21231e0097188d032e7/5c40454d8edfba6595b159b2_primexbt%20airdrop%20ico%20bounty-p-800.png 800w, https://global-uploads.webflow.com/5ba8d21231e0097188d032e7/5c40454d8edfba6595b159b2_primexbt%20airdrop%20ico%20bounty.png 960w"
-                        className={cx(styles["image-2"])}
-                      />
-                      <h3
-                        className={cx(
-                          styles["airdrop-name"],
-                          styles["vertical"]
-                        )}
-                      >
-
-                      </h3>
-                      <div
-                        style={{ "background-color": "rgb(247, 127, 0)" }}
-                        className={cx(
-                          styles["label"],
-                          styles["vertical-label"],
-                          styles["vertical-label-tablet"]
-                        )}
-                      >
-                        {" "}
-                        Airdrop
-                      </div>
-                      <div
-                        className={cx(styles["category"], styles["vertical"])}
-                      >
-                        Exchange
-                      </div>
-
-
-                    </div>
-                  </a>
-                </div>
-                <div
-                  className={cx(
-                    styles["collection-item"],
-                    styles["w-dyn-item"],
-                    styles["w-col"],
-                    styles["w-col-2"]
-                  )}
-                >
-                  <a
-                    href="/airdrop/coinimp"
-                    className={cx(
-                      styles["link-block-14"],
-                      styles["w-inline-block"]
-                    )}
-                  >
-                    <div
-                      className={cx(
-                        styles["div-block-4"],
-                        styles["vertical"],
-                        styles["div-block"]
-                      )}
-                    >
-                      <img
-                        width="75"
-                        height="75"
-                        alt="Airdrop"
-                        src="https://global-uploads.webflow.com/5ba8d21231e0097188d032e7/5c4040d88edfba2f7eb1594c_coinimp%20airdrop%20ico%20bounty.png"
-                        className={cx(styles["image-2"])}
-                      />
-                      <h3
-                        className={cx(
-                          styles["airdrop-name"],
-                          styles["vertical"]
-                        )}
-                      >
-
-                      </h3>
-                      <div
-                        style={{ "background-color": "rgb(247, 127, 0)" }}
-                        className={cx(
-                          styles["label"],
-                          styles["vertical-label"],
-                          styles["vertical-label-tablet"]
-                        )}
-                      >
-                        {" "}
-                        Airdrop
-                      </div>
-                      <div
-                        className={cx(styles["category"], styles["vertical"])}
-                      >
-                        Blockchain
-                      </div>
-
-
-                    </div>
-                  </a>
-                </div>
-                <div
-                  className={cx(
-                    styles["collection-item"],
-                    styles["w-dyn-item"],
-                    styles["w-col"],
-                    styles["w-col-2"]
-                  )}
-                >
-                  <a
-                    href="/airdrop/binance-jersey"
-                    className={cx(
-                      styles["link-block-14"],
-                      styles["w-inline-block"]
-                    )}
-                  >
-                    <div
-                      className={cx(
-                        styles["div-block-4"],
-                        styles["vertical"],
-                        styles["div-block"]
-                      )}
-                    >
-                      <img
-                        width="75"
-                        height="75"
-                        alt="Airdrop"
-                        src="https://global-uploads.webflow.com/5ba8d21231e0097188d032e7/5c400c354ad04e078e9f898c_binance%20jersey%20airdrop%20ico%20bounty.png"
-                        className={cx(styles["image-2"])}
-                      />
-                      <h3
-                        className={cx(
-                          styles["airdrop-name"],
-                          styles["vertical"]
-                        )}
-                      >
-
-                      </h3>
-                      <div
-                        style={{ "background-color": "rgb(247, 127, 0)rgb(247, 127, 0)" }}
-                        className={cx(
-                          styles["label"],
-                          styles["vertical-label"],
-                          styles["vertical-label-tablet"]
-                        )}
-                      >
-                        {" "}
-                        Airdrop
-                      </div>
-                      <div
-                        className={cx(styles["category"], styles["vertical"])}
-                      >
-                        Exchange
-                      </div>
-
-
-                    </div>
-                  </a>
-                </div>
-                <div
-                  className={cx(
-                    styles["collection-item"],
-                    styles["w-dyn-item"],
-                    styles["w-col"],
-                    styles["w-col-2"]
-                  )}
-                >
-                  <a
-                    href="/airdrop/whirl"
-                    className={cx(
-                      styles["link-block-14"],
-                      styles["w-inline-block"]
-                    )}
-                  >
-                    <div
-                      className={cx(
-                        styles["div-block-4"],
-                        styles["vertical"],
-                        styles["div-block"]
-                      )}
-                    >
-                      <img
-                        width="75"
-                        height="75"
-                        alt="Airdrop"
-                        src="https://global-uploads.webflow.com/5ba8d21231e0097188d032e7/5c3ffe4f60d9dc647e499e15_whril%20airdrop%20ico%20bounty.png"
-                        sizes="75px"
-                        srcset="https://global-uploads.webflow.com/5ba8d21231e0097188d032e7/5c3ffe4f60d9dc647e499e15_whril%20airdrop%20ico%20bounty-p-500.png 500w, https://global-uploads.webflow.com/5ba8d21231e0097188d032e7/5c3ffe4f60d9dc647e499e15_whril%20airdrop%20ico%20bounty.png 561w"
-                        className={cx(styles["image-2"])}
-                      />
-                      <h3
-                        className={cx(
-                          styles["airdrop-name"],
-                          styles["vertical"]
-                        )}
-                      >
-                                  </h3>
-                      <div
-                        style={{ "background-color": "rgb(247, 127, 0)" }}
-                        className={cx(
-                          styles["label"],
-                          styles["vertical-label"],
-                          styles["vertical-label-tablet"]
-                        )}
-                      >
-                        {" "}
-                        Airdrop
-                      </div>
-                      <div
-                        className={cx(styles["category"], styles["vertical"])}
-                      >
-                        Blockchain
-                      </div>
-
-
-                    </div>
-                  </a>
-                </div>
+        <div className={cx(styles["section-13"])}>
+           <div className={cx(styles["div-block-52"])}>
+              <div>
+              
               </div>
-            </div>
-          </div>
+           </div>
         </div>
+        <div className={cx(styles["section-10"])}>
+           <div className={cx(styles["airdrop-list"],styles["_2"])}>
+              <div className={cx(styles["w-dyn-list"])}>
+                 <div className={cx(styles["popular-category-airdrop"],styles["w-dyn-items"],styles["w-row"])}>
+                    <div className={cx(styles["collection-item"],styles["w-dyn-item"],styles["w-col"],styles["w-col-2"])}>
+                       <Link to="/feed" className={cx(styles["link-block-10"],styles["w-inline-block"])}>
+                          <div className={cx(styles["div-block-4"],styles["vertical"],styles["div-block"])}>
+                             <img width="90" height="75" alt="AIDUS" src="https://whitelabelitsolutions.com/wp-content/uploads/2017/05/Cpanel_CP_logo_logotype.png" sizes="75px"className={cx(styles["image-2"])} />
+                             <h1 className={cx(styles["airdrop-name"],styles["vertical"])}style={{"font-size": "18px"}}>C-panel</h1>
+                             <div style={{"background-color":"#6a69e1"}} className={cx(styles["label"],styles["vertical-label"],styles["vertical-label-tablet"])}>Management</div>
+
+
+
+                          </div>
+                       </Link>
+                    </div>
+                    <div className={cx(styles["collection-item"],styles["w-dyn-item"],styles["w-col"],styles["w-col-2"])}>
+                       <Link to="/feed" className={cx(styles["link-block-10"],styles["w-inline-block"])}>
+                          <div className={cx(styles["div-block-4"],styles["vertical"],styles["div-block"])}>
+                             <img width="90" height="75" alt="AIDUS" src="https://whitelabelitsolutions.com/wp-content/uploads/2017/05/Cpanel_CP_logo_logotype.png" sizes="75px"className={cx(styles["image-2"])} />
+                             <h1 className={cx(styles["airdrop-name"],styles["vertical"])}style={{"font-size": "18px"}}>C-panel</h1>
+                             <div style={{"background-color":"#6a69e1"}} className={cx(styles["label"],styles["vertical-label"],styles["vertical-label-tablet"])}>Management</div>
+
+
+
+                          </div>
+                       </Link>
+                    </div>
+                    <div className={cx(styles["collection-item"],styles["w-dyn-item"],styles["w-col"],styles["w-col-2"])}>
+                       <Link to="/feed" className={cx(styles["link-block-10"],styles["w-inline-block"])}>
+                          <div className={cx(styles["div-block-4"],styles["vertical"],styles["div-block"])}>
+                             <img width="90" height="75" alt="AIDUS" src="https://whitelabelitsolutions.com/wp-content/uploads/2017/05/Cpanel_CP_logo_logotype.png" sizes="75px"className={cx(styles["image-2"])} />
+                             <h1 className={cx(styles["airdrop-name"],styles["vertical"])}style={{"font-size": "18px"}}>C-panel</h1>
+                             <div style={{"background-color":"#6a69e1"}} className={cx(styles["label"],styles["vertical-label"],styles["vertical-label-tablet"])}>Management</div>
+
+
+
+                          </div>
+                       </Link>
+                    </div>
+                    <div className={cx(styles["collection-item"],styles["w-dyn-item"],styles["w-col"],styles["w-col-2"])}>
+                       <Link to="/feed" className={cx(styles["link-block-10"],styles["w-inline-block"])}>
+                          <div className={cx(styles["div-block-4"],styles["vertical"],styles["div-block"])}>
+                             <img width="90" height="75" alt="AIDUS" src="https://whitelabelitsolutions.com/wp-content/uploads/2017/05/Cpanel_CP_logo_logotype.png" sizes="75px"className={cx(styles["image-2"])} />
+                             <h1 className={cx(styles["airdrop-name"],styles["vertical"])}style={{"font-size": "18px"}}>C-panel</h1>
+                             <div style={{"background-color":"#6a69e1"}} className={cx(styles["label"],styles["vertical-label"],styles["vertical-label-tablet"])}>Management</div>
+
+
+
+                          </div>
+                       </Link>
+                    </div>
+                    <div className={cx(styles["collection-item"],styles["w-dyn-item"],styles["w-col"],styles["w-col-2"])}>
+                       <Link to="/feed" className={cx(styles["link-block-10"],styles["w-inline-block"])}>
+                          <div className={cx(styles["div-block-4"],styles["vertical"],styles["div-block"])}>
+                             <img width="90" height="75" alt="AIDUS" src="https://whitelabelitsolutions.com/wp-content/uploads/2017/05/Cpanel_CP_logo_logotype.png" sizes="75px"className={cx(styles["image-2"])} />
+                             <h1 className={cx(styles["airdrop-name"],styles["vertical"])}style={{"font-size": "18px"}}>C-panel</h1>
+                             <div style={{"background-color":"#6a69e1"}} className={cx(styles["label"],styles["vertical-label"],styles["vertical-label"])}>Management</div>
+
+
+
+                          </div>
+                       </Link>
+                    </div>
+                    <div className={cx(styles["collection-item"],styles["w-dyn-item"],styles["w-col"],styles["w-col-2"])}>
+                       <Link to="/feed" className={cx(styles["link-block-10"],styles["w-inline-block"])}>
+                          <div className={cx(styles["div-block-4"],styles["vertical"],styles["div-block"])}>
+                             <img width="90" height="75" alt="AIDUS" src="https://whitelabelitsolutions.com/wp-content/uploads/2017/05/Cpanel_CP_logo_logotype.png" sizes="75px"className={cx(styles["image-2"])} />
+                             <h1 className={cx(styles["airdrop-name"],styles["vertical"])}style={{"font-size": "18px"}}>C-panel</h1>
+                             <div style={{"background-color":"#6a69e1"}} className={cx(styles["label"],styles["vertical-label"],styles["vertical-label-tablet"])}>Management</div>
+
+
+
+                          </div>
+                       </Link>
+                    </div>
+
+
+                 </div>
+              </div>
+           </div>
+        </div>
+
+        </Fragment>
       </div>
     );
   }

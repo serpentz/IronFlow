@@ -30,6 +30,7 @@ class NavBar extends Component {
                 <img
                   src="https://global-uploads.webflow.com/59deb588800ae30001ec19c9/59dff983ad94200001413ae7_close-x.svg"
                   alt=""
+
                   className="image-2"
                 />
               </div>
@@ -38,7 +39,7 @@ class NavBar extends Component {
           </div>
           <div id="home-link" className="navbar1-link logo">
             <div className="navbar1-logo w-embed">
-              <img src={logo} alt="" />
+              <img src={logo} alt=""  style={{padding: "5px"}} />
             </div>
           </div>
           <div className="navbar1-link navbar1-spacer" />
@@ -80,7 +81,7 @@ class NavBar extends Component {
                 "background-color":"#23aae0",
                 "-webkit-transition": "all .2s ease",
                 transition: "all .2s ease",
-                color: "#fff"}}className="navbar-link navbar-link-go-to-library">go to your Profile</Link>
+                color: "#fff"}}className="navbar1-link underline">go to your Profile</Link>
             <span
               onClick={this.setCurrentUser}
               className="navbar1-link signup-button"
