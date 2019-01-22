@@ -31,6 +31,7 @@ const fetchQuestions = (query = `{ questions { categories { id title } id statem
            dispatch({type: "GET_QUESTIONS_ATTEMPT"})
            return request(GRAPH_QL_ENDPOINT,query)
                    .then(response => {
+                     debugger
                      dispatch({type: "GET_QUESTIONS_RESPONSE", payload: response.questions})
                    })
 
