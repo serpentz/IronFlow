@@ -71,6 +71,7 @@ module Resolvers
       )
     end
   end
+
   class AddHobby < GraphQL::Function
     # TODO: define return fields
 
@@ -143,7 +144,7 @@ module Resolvers
       name 'QuestionInput'
 
       argument :statement, types.String
-      argument :category, types.String
+      argument :categories, !types[!types.String]
 
     end
 
@@ -160,7 +161,51 @@ module Resolvers
     end
 
 
+    # TODO: define resolve method
+    def call(_obj, _args, _ctx)
+      @user =  User.find Adapter::Auth.new.decoded_token _args[:user][:token]
 
+
+      return unless @user
+
+      @categories = _args[:question][:categories].map do |category|    Category.find_or_create_by(title: category)  end
+      @question = Question.create statement: _args[:question][:statement], user: @user ,categories: @categories
+
+      # ensures we created the user
+      unless @question.valid?
+         errors =  {question: @question.errors.full_messages}
+        return OpenStruct.new(
+          errors: errors.to_json
+        )
+      end
+
+      OpenStruct.new(
+        errors: nil
+      )
+    end
+  end
+  class CreateAnswer < GraphQL::Function
+    # TODO: define return fields
+    AnswerInputType = GraphQL::InputObjectType.define do
+      name 'AnswerInput'
+
+      argument :statement, types.String
+      argument :question_id, types.Int
+
+
+    end
+
+    argument :user,-> {Types::CurrentUserInputType}
+
+
+    argument :answer, !AnswerInputType
+
+
+    type do
+      name 'AddAnswer'
+
+      field :errors, types.String
+    end
 
 
     # TODO: define resolve method
@@ -170,12 +215,14 @@ module Resolvers
 
       return unless @user
 
-      @question = Question.create statement: _args[:question][:statement], user: @user ,categories: [Category.find_or_create_by(title: _args[:question][:category])]
+
+      @answer = Answer.create statement: _args[:answer][:statement], user: @user ,question_id: _args[:answer][:question_id]
 
       # ensures we created the user
-      unless @question.valid?
+      unless @answer.valid?
+         errors =  {answer: @answer.errors.full_messages}
         return OpenStruct.new(
-          errors: "#{@question.errors.full_messages.join(", ")}"
+          errors: errors.to_json
         )
       end
 

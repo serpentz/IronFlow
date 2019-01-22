@@ -1,95 +1,61 @@
-import React, { Component } from "react";
+import React, { Component,Fragment } from "react";
 
 import { Route, Switch, Link } from "react-router-dom";
 import cx from 'classnames';
-import styles from '../css/Comments.module.css'
+import 'reset-css'
+
 
 
 class Comments extends Component {
   render() {
     return (
 
-      <div className="ui small comments">
-        <h3 className="ui dividing header">Comments</h3>
-        <div className="comment">
-          <a className="avatar">
-            <img src="/images/avatar/small/matt.jpg"/>
-          </a>
-          <div className="content">
-            <a className="author">Matt</a>
-            <div className="metadata">
-              <span className="date">Today at 5:42PM</span>
-            </div>
-            <div className="text">
-              How artistic!
-            </div>
-            <div className="actions">
-              <a className="reply">Reply</a>
-            </div>
-          </div>
+
+
+      <Fragment>
+
+
+<div className="card card-comments mb-3 wow fadeIn">
+    <div className="card-header font-weight-bold">1 comment</div>
+    <div className="card-body">
+
+    <div className="media d-block d-md-flex mt-4">
+        <img className="mb-3" style={{height: "10vh","border-radius": "10px"}} src="https://mdbootstrap.com/img/Photos/Avatars/img (20).jpg" alt="Generic placeholder image"/>
+        <div className="media-body text-center text-md-left ml-md-3 ml-0">
+            <h5 className="mt-0 font-weight-bold">Miley Steward
+
+            </h5>
+            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laboru
         </div>
-        <div className="comment">
-          <a className="avatar">
-            <img src="/images/avatar/small/elliot.jpg"/>
-          </a>
-          <div className="content">
-            <a className="author">Elliot Fu</a>
-            <div className="metadata">
-              <span className="date">Yesterday at 12:30AM</span>
+    </div>
+
+    </div>
+</div>
+
+
+<div className="card mb-3 wow fadeIn">
+    <div className="card-header font-weight-bold">Know the answer?</div>
+    <div className="card-body">
+
+
+        <form>
+
+
+            <div className="form-group">
+                <label for="replyFormComment">Your Answer</label>
+                <textarea className="form-control" id="replyFormComment" rows="5"></textarea>
             </div>
-            <div className="text">
-              <p>This has been very useful for my research. Thanks as well!</p>
+
+            <div className="text-center mt-4">
+                <button className="btn btn-info btn-md" type="submit">Post</button>
             </div>
-            <div className="actions">
-              <a className="reply">Reply</a>
-            </div>
-          </div>
-          <div className="comments">
-            <div className="comment">
-              <a className="avatar">
-                <img src="/images/avatar/small/jenny.jpg"/>
-              </a>
-              <div className="content">
-                <a className="author">Jenny Hess</a>
-                <div className="metadata">
-                  <span className="date">Just now</span>
-                </div>
-                <div className="text">
-                  Elliot you are always so right :)
-                </div>
-                <div className="actions">
-                  <a className="reply">Reply</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="comment">
-          <a className="avatar">
-            <img src="/images/avatar/small/joe.jpg"/>
-          </a>
-          <div className="content">
-            <a className="author">Joe Henderson</a>
-            <div className="metadata">
-              <span className="date">5 days ago</span>
-            </div>
-            <div className="text">
-              Dude, this is awesome. Thanks so much
-            </div>
-            <div className="actions">
-              <a className="reply">Reply</a>
-            </div>
-          </div>
-        </div>
-        <form className="ui reply form">
-          <div className="field">
-            <textarea></textarea>
-          </div>
-          <div className="ui blue labeled submit icon button">
-            <i className="icon edit"></i> Add Reply
-          </div>
         </form>
-      </div>
+
+    </div>
+</div>
+</Fragment>
+
     );
   }
 }

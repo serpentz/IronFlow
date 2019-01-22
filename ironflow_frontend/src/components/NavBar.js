@@ -60,6 +60,8 @@ class NavBar extends Component {
             Blogs
           </Link>
           {!this.state.user ? (
+            <Fragment>
+
             <span
               id="navbar1-signup"
               data-toggle="modal"
@@ -68,13 +70,24 @@ class NavBar extends Component {
             >
               sign up / log in
             </span>
+            </Fragment>
           ) : (
+                <Fragment>
+            <Link id="go-to-library" to="/profile" style={{display: "flex",
+                height: "auto",
+                padding: "6px 20px",
+                "border-radius": "10px",
+                "background-color":"#23aae0",
+                "-webkit-transition": "all .2s ease",
+                transition: "all .2s ease",
+                color: "#fff"}}className="navbar-link navbar-link-go-to-library">go to your Profile</Link>
             <span
               onClick={this.setCurrentUser}
               className="navbar1-link signup-button"
             >
               log-out
             </span>
+                </Fragment>
           )}
         </div>
 

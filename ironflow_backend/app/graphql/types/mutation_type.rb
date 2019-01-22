@@ -6,5 +6,6 @@ module Types
     field :loginUser, function: Resolvers::SignInUser.new
     field :addHobby, function: Resolvers::AddHobby.new
     field :createQuestion, function: Resolvers::CreateQuestion.new
+    field :createAnswer, function: Resolvers::CreateAnswer.new
   end
 end

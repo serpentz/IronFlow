@@ -22,109 +22,41 @@ class QuestionPage extends Component {
               >
                 <div className={cx(styles["div-block-127"])}>
                   <div className={cx(styles["airdrop-sidebar"])}>
+                  <Link to="/profile">
                     <img
-                      width="75"
-                      height="75"
-                      alt="Zorff Blockchain"
-                      src="https://global-uploads.webflow.com/5ba8d21231e0097188d032e7/5be94ef0066356707f1acd49_zroff%20airdrp%20ico%20bounty.jpg"
+                      width="85"
+                      height="85"
+                      alt="USER"
+                      src="https://mdbootstrap.com/img/Photos/Avatars/img%20(20).jpg"
                       className={cx(
                         styles["airdrop-logo"],
                         styles["airdrop-image"]
                       )}
                     />
-                    <img
-                      width="75"
-                      height="75"
-                      src=""
-                      alt="Zorff Blockchain"
-                      className={cx(
-                        styles["airdrop-logo"],
-                        styles["airdrop-image"],
-                        styles["w-dyn-bind-empty"]
-                      )}
-                    />
+                    </Link>
+
                     <h1
                       className={cx(
                         styles["airdrop-name"],
                         styles["information"]
                       )}
                     >
-                      Zorff Blockchain
+                      FIRST LAST
                     </h1>
                     <div
                       className={cx(styles["category"], styles["information"])}
                     >
-                      Exchange
+                      Full Stackc Dev
                     </div>
-                    <div
-                      style={{ "background-color": "#6a69e1" }}
-                      className={cx(styles["label"], styles["information"])}
-                    >
-                      Airdrop
-                    </div>
-                    <a
+
+                    <Link to="/profile"
                       href="http://bit.ly/zorffblockchain"
                       className={cx(styles["button"], styles["w-button"])}
                     >
-                      Claim Airdrop
-                    </a>
-                    <a
-                      href="http://bit.ly/zorffblockchain"
-                      className={cx(
-                        styles["button"],
-                        styles["w-condition-invisible"],
-                        styles["w-button"]
-                      )}
-                    >
-                      {" "}
-                      Join The Contest
-                    </a>
-                    <a
-                      href="http://bit.ly/zorffblockchain"
-                      className={cx(
-                        styles["button"],
-                        styles["w-condition-invisible"],
-                        styles["w-button"]
-                      )}
-                    >
-                      {" "}
-                      Join Giveaway
-                    </a>
-                    <a
-                      href="http://bit.ly/zorffblockchain"
-                      className={cx(
-                        styles["button"],
-                        styles["w-condition-invisible"],
-                        styles["w-button"]
-                      )}
-                    >
-                      {" "}
-                      Join Refer &amp; Earn
-                    </a>
-                    <a
-                      href="http://bit.ly/zorffblockchain"
-                      className={cx(
-                        styles["button"],
-                        styles["w-condition-invisible"],
-                        styles["w-button"]
-                      )}
-                    >
-                      {" "}
-                      Get It Now
-                    </a>
-                    <a
-                      href="#"
-                      className={cx(
-                        styles["button"],
-                        styles["add-to-favorite"],
-                        styles["w-hidden-medium"],
-                        styles["w-hidden-small"],
-                        styles["w-hidden-tiny"],
-                        styles["w-button"]
-                      )}
-                    >
-                      Add to Favorite
-                    </a>
+                      Visit Profile
+                    </Link>
+
+
                     <a
                       href="https://zorff.com/?utm_source=airdropnext"
                       className={cx(
@@ -229,112 +161,7 @@ class QuestionPage extends Component {
                         </a>
                       </div>
                     </div>
-                    <div
-                      className={cx(
-                        styles["airdrop-details"],
-                        styles["w-hidden-medium"],
-                        styles["w-hidden-small"],
-                        styles["w-hidden-tiny"]
-                      )}
-                    >
-                      <div className={cx(styles["div-airdrop-details"])}>
-                        <img
-                          src="https://global-uploads.webflow.com/5ba7e424b828fc638b530a9b/5bb7bc9d9c8636dfe404bfd0_coin%20(1).svg"
-                          width="16"
-                          alt=""
-                          className={cx(styles["image-10"])}
-                        />
-                        <h6 className={cx(styles["airdrop-details-input"])}>
-                          ZRF
-                        </h6>
-                        <h6 className={cx(styles["airdrop-details-name"])}>
-                          Ticker:
-                        </h6>
-                      </div>
-                      <div className={cx(styles["div-airdrop-details"])}>
-                        <img
-                          src="https://global-uploads.webflow.com/5ba7e424b828fc638b530a9b/5bb7b9bf7768e707306d9900_database.svg"
-                          width="16"
-                          alt=""
-                          className={cx(styles["image-10"])}
-                        />
-                        <h6 className={cx(styles["airdrop-details-name"])}>
-                          Platform:
-                        </h6>
-                        <h6 className={cx(styles["airdrop-details-input"])}>
-                          Ethereum
-                        </h6>
-                      </div>
-                      <div className={cx(styles["div-airdrop-details"])}>
-                        <img
-                          src="https://global-uploads.webflow.com/5ba7e424b828fc638b530a9b/5bb7b9c2696168ebefc039e0_worker-digging-a-hole.svg"
-                          width="16"
-                          alt=""
-                          className={cx(styles["image-10"])}
-                        />
-                        <h6 className={cx(styles["airdrop-details-element"])}>
-                          Reward:
-                        </h6>
-                        <h6 className={cx(styles["airdrop-details-input"])}>
-                          10000 ZRF
-                        </h6>
-                      </div>
-                      <div className={cx(styles["div-airdrop-details"])}>
-                        <img
-                          src="https://global-uploads.webflow.com/5ba7e424b828fc638b530a9b/5bb7b9bfbc3a550e6ab594d7_money-bag.svg"
-                          width="16"
-                          alt=""
-                          className={cx(styles["image-10"])}
-                        />
-                        <h6 className={cx(styles["airdrop-details-name"])}>
-                          Value:
-                        </h6>
-                        <h6 className={cx(styles["airdrop-details-input"])}>
-                          $5
-                        </h6>
-                      </div>
-                      <div className={cx(styles["div-airdrop-details"])}>
-                        <img
-                          src="https://global-uploads.webflow.com/5ba7e424b828fc638b530a9b/5bb7bc9efe03e5d3860d1242_time.svg"
-                          width="16"
-                          alt=""
-                          className={cx(styles["image-10"])}
-                        />
-                        <h6 className={cx(styles["airdrop-details-name"])}>
-                          Ends:
-                        </h6>
-                        <div
-                          className={cx(
-                            styles["countdown"],
-                            styles["w-hidden-medium"],
-                            styles["w-hidden-small"],
-                            styles["w-hidden-tiny"],
-                            styles["w-embed"],
-                            styles["w-script"]
-                          )}
-                        >
-                          <meta
-                            name="viewport"
-                            content="width=device-width, initial-scale=1"
-                          />
 
-                          <p
-                            className={cx(styles["timer"])}
-                            id="Zorff Blockchain"
-                          >
-                            00
-                          </p>
-                        </div>
-                        <h6
-                          className={cx(
-                            styles["airdrop-details-input"],
-                            styles["_1"]
-                          )}
-                        >
-                          Days Left
-                        </h6>
-                      </div>
-                    </div>
                     <div
                       className={cx(
                         styles["airdrop-ratings"],
@@ -343,23 +170,7 @@ class QuestionPage extends Component {
                         styles["w-hidden-tiny"]
                       )}
                     >
-                      <h5>Project Ratings</h5>
-                      <div
-                        className={cx(
-                          styles["rating"],
-                          styles["expert-version"]
-                        )}
-                      >
-                        Expert Version
-                      </div>
-                      <div
-                        className={cx(
-                          styles["rating-number"],
-                          styles["rating"]
-                        )}
-                      >
-                        ★★★★
-                      </div>
+
                       <div
                         className={cx(
                           styles["rating"],
@@ -392,7 +203,7 @@ class QuestionPage extends Component {
                         styles["w-hidden-tiny"]
                       )}
                     >
-                      <h4 className={cx(styles["heading-8"])}>Top Trending</h4>
+                      <h4 className={cx(styles["heading-8"])}>My Favorites </h4>
                       <div
                         className={cx(
                           styles["top-5-airdrop"],
@@ -429,9 +240,7 @@ class QuestionPage extends Component {
                               >
                                 Airdrop
                               </div>
-                              <div className={cx(styles["text-block-17"])}>
-                                ★★★★
-                              </div>
+
                             </a>
                           </div>
                           <div className={cx(styles["w-dyn-item"])}>
@@ -458,9 +267,7 @@ class QuestionPage extends Component {
                               >
                                 Airdrop
                               </div>
-                              <div className={cx(styles["text-block-17"])}>
-                                ★★★★
-                              </div>
+
                             </a>
                           </div>
                           <div className={cx(styles["w-dyn-item"])}>
@@ -487,9 +294,7 @@ class QuestionPage extends Component {
                               >
                                 Airdrop
                               </div>
-                              <div className={cx(styles["text-block-17"])}>
-                                ★★★★
-                              </div>
+
                             </a>
                           </div>
                           <div className={cx(styles["w-dyn-item"])}>
@@ -516,9 +321,7 @@ class QuestionPage extends Component {
                               >
                                 Airdrop
                               </div>
-                              <div className={cx(styles["text-block-17"])}>
-                                ★★★★
-                              </div>
+
                             </a>
                           </div>
                         </div>
@@ -534,7 +337,7 @@ class QuestionPage extends Component {
                   styles["w-col-9"],
                   styles["w-col-stack"]
                 )}
-              >
+
                 >
                 <div className={cx(styles["airdrop-information"])}>
                   <h1
@@ -563,88 +366,7 @@ class QuestionPage extends Component {
                       transaction costs.
                     </p>
                   </div>
-                  <div className={cx(styles["divonpagesocialshare"])}>
-                    <div className={cx(styles["share-text"])}>Share</div>
-                    <div
-                      className={cx(
-                        styles["socialsharecode"],
-                        styles["w-embed"],
-                        styles["w-script"]
-                      )}
-                    >
-                      <div
-                        className={cx(styles["addthis_inline_share_toolbox"])}
-                      />
-                    </div>
-                  </div>
-                  <h1 className={cx(styles["introduction"])}>
-                    How to participate?
-                  </h1>
-                  <div
-                    className={cx(
-                      styles["how-to-join-airdrop"],
-                      styles["airdrop-project-information"],
-                      styles["w-richtext"]
-                    )}
-                  >
-                    <ol>
-                      <li>
-                        Fillup{" "}
-                        <a
-                          href="http://bit.ly/zorffblockchain"
-                          data-rt-link-type="external"
-                        >
-                          Airdrop form
-                        </a>
-                        .
-                      </li>
-                      <li>
-                        Join their{" "}
-                        <a
-                          href="https://t.me/zorffglobal"
-                          data-rt-link-type="external"
-                        >
-                          Telegram group
-                        </a>
-                        .
-                      </li>
-                      <li>
-                        Join
-                        <a
-                          href="https://t.me/zorffpay"
-                          data-rt-link-type="external"
-                        >
-                          {" "}
-                          telegram channel
-                        </a>
-                        .
-                      </li>
-                      <li>
-                        Follow on{" "}
-                        <a
-                          href="https://twitter.com/ZorffPay"
-                          data-rt-link-type="external"
-                        >
-                          Twitter
-                        </a>
-                        .
-                      </li>
-                      <li>
-                        Retweet{" "}
-                        <a
-                          href="https://twitter.com/ZorffPay/status/1061342304320061440"
-                          data-rt-link-type="external"
-                        >
-                          post
-                        </a>{" "}
-                        and tag 10 friends.
-                      </li>
-                      <li>
-                        We will be airdropping 10000 ZRF to participants and for
-                        every referral we give 1000 ZRF Token.
-                      </li>
-                    </ol>
-                  </div>
+
                   <div
                     className={cx(
                       styles["load-comment"],
