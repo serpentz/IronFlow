@@ -15,32 +15,35 @@ class Comments extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    this.props.submitAnswer(this.state.answer);
+    this.props.submitAnswer({
+      statement: this.state.answer,
+      question_id: this.props.selected.id
+    });
   };
   render() {
     return (
       <Fragment>
         <div className="card card-comments mb-3 wow fadeIn">
-          <div className="card-header font-weight-bold">{this.props.comments.length} comment</div>
+          <div className="card-header font-weight-bold">
+            {this.props.comments.length} comment
+          </div>
           <div className="card-body">
-            {
-              this.props.comments.map(ans => {
-                return (
-                  <div className="media d-block d-md-flex mt-4">
-                    <img
-                      className="mb-3"
-                      style={{ height: "10vh", "border-radius": "10px" }}
-                      src="https://mdbootstrap.com/img/Photos/Avatars/img (20).jpg"
-                      alt="Generic placeholder image"
-                    />
-                    <div className="media-body text-center text-md-left ml-md-3 ml-0">
-                      <h5 className="mt-0 font-weight-bold">{ans.user.name}</h5>
-                        {ans.statement}
-                    </div>
+            {this.props.comments.map(ans => {
+              return (
+                <div className="media d-block d-md-flex mt-4">
+                  <img
+                    className="mb-3"
+                    style={{ height: "10vh", "border-radius": "10px" }}
+                    src="https://mdbootstrap.com/img/Photos/Avatars/img (20).jpg"
+                    alt="Generic placeholder image"
+                  />
+                  <div className="media-body text-center text-md-left ml-md-3 ml-0">
+                    <h5 className="mt-0 font-weight-bold">{ans.user.name}</h5>
+                    {ans.statement}
                   </div>
-                )
-              })
-            }
+                </div>
+              );
+            })}
           </div>
         </div>
 
@@ -73,7 +76,8 @@ class Comments extends Component {
 
 const mapStateToProps = state => {
   return {
-    loggedIn: state.user.loggedIn
+    loggedIn: state.user.loggedIn,
+    selected: state.questions.selected
   };
 };
 

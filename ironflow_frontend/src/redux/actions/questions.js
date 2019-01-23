@@ -57,29 +57,27 @@ const onChangeStatement = statement => {
 const submitAnswer = answer => {
   //put in callback for the question as well
 
-  let a = answer
-  return (dispatch, getState) => {
+  let token = { token: localStorage.getItem("token") };
 
-    let token = { token: localStorage.getItem("token") };
+  let parsedAnswer = `answer: ${JSON.stringify({
+    statement: answer.statement,
+    question_id: answer.question_id
+  }).replace(/\"([^(\")"]+)\":/g, "$1:")}`;
+  let parsedUser = `user: ${JSON.stringify(token).replace(
+    /\"([^(\")"]+)\":/g,
+    "$1:"
+  )}`;
 
+  debugger;
 
-    let parsedAnswer = `answer: ${JSON.stringify({
-      statement: "nice",
-      question_id: getState().questions.selected.id
-    }).replace(/\"([^(\")"]+)\":/g, "$1:")}`;
-    let parsedUser = `user: ${JSON.stringify(token).replace(
-      /\"([^(\")"]+)\":/g,
-      "$1:"
-    )}`;
-
-    let formatedMutation = `mutation {
+  let formatedMutation = `mutation {
                               createAnswer(${parsedAnswer}, ${parsedUser}){
                                 errors
                               }
                             }`;
-      debugger
-    dispatch({ type: "CREATE_ANSWER_ATTEMPT" });
 
+  return dispatch => {
+    dispatch({ type: "CREATE_ANSWER_ATTEMPT" });
     return request(GRAPH_QL_ENDPOINT, formatedMutation).then(response => {
       dispatch({ type: "CREATE_ANSWER_RESPONSE", payload: response.error });
     });
