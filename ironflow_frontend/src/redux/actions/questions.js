@@ -1,48 +1,65 @@
-import {GRAPH_QL_ENDPOINT} from '../../constants'
-import { request } from 'graphql-request'
+import { GRAPH_QL_ENDPOINT } from "../../constants";
+import { request } from "graphql-request";
 
+const createQuestion = () => {
+  //put in callback for the question as well
+  return (dispatch, getState) => {
+    let token = { token: localStorage.getItem("token") };
 
+    let parsedQuestion = `question: ${JSON.stringify(getState().draft).replace(
+      /\"([^(\")"]+)\":/g,
+      "$1:"
+    )}`;
+    let parsedUser = `user: ${JSON.stringify(token).replace(
+      /\"([^(\")"]+)\":/g,
+      "$1:"
+    )}`;
 
+    let formatedMutation = `mutation {
+                              createQuestion(${parsedQuestion}, ${parsedUser}){
+                                errors
+                              }
+                            }`;
+    dispatch({ type: "CREATE_QUESTION_ATTEMPT" });
 
-const createQuestion = (question) => {
+    return request(GRAPH_QL_ENDPOINT, formatedMutation).then(response => {
+      dispatch({ type: "CREATE_QUESTION_RESPONSE", payload: response.error });
+    });
+  };
+};
 
-let  mutation = `question: ${JSON.stringify(question).replace(/\"([^(\")"]+)\":/g,"$1:")}`
-
-  let formatedMutation = `mutation {
-                            createQuestion(${mutation}){
-                              errors
-                            }
-                          }`
+const fetchQuestions = (
+  query = `{ questions { view_count categories { id title } id statement answers { id statement user {  id name email } } user { id name email } } }`
+) => {
   return dispatch => {
-     dispatch({type: "CREATE_QUESTION_ATTEMPT"})
+    dispatch({ type: "GET_QUESTIONS_ATTEMPT" });
+    return request(GRAPH_QL_ENDPOINT, query).then(response => {
+      dispatch({ type: "GET_QUESTIONS_RESPONSE", payload: response.questions });
+    });
+  };
+};
 
-     return request(GRAPH_QL_ENDPOINT,formatedMutation)
-             .then(response => {
+const selectQuestion = question => {
+  return { type: "SELECT_QUESTION", question };
+};
 
-               dispatch({type: "CREATE_QUESTION_RESPONSE", payload: response.error})
-             })
+//Question Creation
 
-  }
-}
+const addCategory = category => {
+  return { type: "ADD_CATEGORY", category };
+};
+const deleteCategory = category => {
+  return { type: "DELETE_CATEGORY", category };
+};
+const onChangeStatement = statement => {
+  return { type: "QUESTION_STATEMENT_CHANGE", statement };
+};
 
-const fetchQuestions = (query = `{ questions { view_count categories { id title } id statement answers { id statement user {  id name email } } user { id name email } } }`) => {
-
-       return (dispatch) => {
-           dispatch({type: "GET_QUESTIONS_ATTEMPT"})
-           return request(GRAPH_QL_ENDPOINT,query)
-                   .then(response => {
-                     dispatch({type: "GET_QUESTIONS_RESPONSE", payload: response.questions})
-                   })
-
-       }
-   }
-
-   const selectQuestion = (question) => {
-          return {type: "SELECT_QUESTION", question}
-   }
-
-export  {
+export {
   fetchQuestions,
   createQuestion,
-  selectQuestion
-}
+  selectQuestion,
+  addCategory,
+  deleteCategory,
+  onChangeStatement
+};

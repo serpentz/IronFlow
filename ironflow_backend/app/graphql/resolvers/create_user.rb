@@ -144,7 +144,7 @@ module Resolvers
       name 'QuestionInput'
 
       argument :statement, types.String
-      argument :categories, !types[!types.String]
+      argument :categories,-> {!types[!types.String]}
 
     end
 
@@ -210,10 +210,16 @@ module Resolvers
 
     # TODO: define resolve method
     def call(_obj, _args, _ctx)
-      @user =  User.find Adapter::Auth.new.decoded_token _args[:user][:token]
+      @id = Adapter::Auth.new.decoded_token _args[:user][:token]
 
+      byebug
+       unless @id
+           OpenStruct.new(
+             errors: "invalid token"
+           )
+       end
 
-      return unless @user
+        @user =  User.find @id
 
 
       @answer = Answer.create statement: _args[:answer][:statement], user: @user ,question_id: _args[:answer][:question_id]

@@ -1,48 +1,49 @@
 import React, { Component, Fragment } from "react";
 
-import { Route, Switch, Link , withRouter} from "react-router-dom";
-import {connect} from "react-redux"
-import {signUp,logIn,logout} from '../redux/actions/user'
+import { Route, Switch, Link, withRouter } from "react-router-dom";
+import { connect } from "react-redux";
+import { signUp, logIn, logout } from "../redux/actions/user";
+import { onChangeStatement, createQuestion } from "../redux/actions/questions";
 import logo from "../images/logo.png";
-import AutoComplete from './AutoComplete'
+import AutoComplete from "./AutoComplete";
 
 import "../css/NavBar.css";
 import "../css/Modal.css";
 
 class NavBar extends Component {
   state = {
-      register: true,
-      question: {
-          statement: "",
-          category: ""
-      },
-      user:{
-        email: "",
-        name: "",
-        password:""
-      }
+    register: true,
+    question: {
+      statement: "",
+      category: ""
+    },
+    user: {
+      email: "",
+      name: "",
+      password: ""
+    }
+  };
 
-  }
+  handleChange = e => {
+    this.props.onChangeStatement(e.target.value);
+  };
+  handleUserChange = e => {
+    this.setState({
+      ...this.state,
+      user: { ...this.state.user, [e.target.name]: e.target.value }
+    });
+  };
 
-handleChange = (e) => {
-  this.setState({...this.state, question: {...this.state.question, [e.target.name]: e.target.value}})
-}
-handleUserChange = (e) => {
-  this.setState({...this.state, user: {...this.state.user, [e.target.name]: e.target.value}})
-}
+  handleCreateQuestionSubmit = e => {
+    e.preventDefault();
 
-  handleCreateQuestionSubmit = (e) => {
-    e.preventDefault()
-
-        this.props.createQuestion(this.state.question)
-  }
+    this.props.createQuestion(this.state.question);
+  };
 
   toggleRegister = () => {
-    this.setState({register: !this.state.register})
-  }
-  componentDidMount(){
-
-  }
+    this.setState({ register: !this.state.register });
+  };
+  componentDidMount() {}
   render() {
     return (
       <Fragment>
@@ -53,7 +54,6 @@ handleUserChange = (e) => {
                 <img
                   src="https://global-uploads.webflow.com/59deb588800ae30001ec19c9/59dff983ad94200001413ae7_close-x.svg"
                   alt=""
-
                   className="image-2"
                 />
               </div>
@@ -62,7 +62,7 @@ handleUserChange = (e) => {
           </div>
           <div id="home-link" className="navbar1-link logo">
             <div className="navbar1-logo w-embed">
-              <img src={logo} alt=""  style={{padding: "5px"}} />
+              <img src={logo} alt="" style={{ padding: "5px" }} />
             </div>
           </div>
           <div className="navbar1-link navbar1-spacer" />
@@ -85,33 +85,41 @@ handleUserChange = (e) => {
           </Link>
           {!this.props.loggedIn ? (
             <Fragment>
-
-            <span
-              id="navbar1-signup"
-              data-toggle="modal"
-              data-target="#darkModalForm"
-              className="navbar1-link signup-button"
-            >
-              sign up / log in
-            </span>
+              <span
+                id="navbar1-signup"
+                data-toggle="modal"
+                data-target="#darkModalForm"
+                className="navbar1-link signup-button"
+              >
+                sign up / log in
+              </span>
             </Fragment>
           ) : (
-                <Fragment>
-            <Link id="go-to-library" to="/profile" style={{display: "flex",
-                height: "auto",
-                padding: "6px 20px",
-                "border-radius": "10px",
-                "background-color":"#23aae0",
-                "-webkit-transition": "all .2s ease",
-                transition: "all .2s ease",
-                color: "#fff"}}className="navbar1-link underline">go to your Profile</Link>
-            <span
-              onClick={this.props.logout}
-              className="navbar1-link signup-button"
-            >
-              log-out
-            </span>
-                </Fragment>
+            <Fragment>
+              <Link
+                id="go-to-library"
+                to="/profile"
+                style={{
+                  display: "flex",
+                  height: "auto",
+                  padding: "6px 20px",
+                  "border-radius": "10px",
+                  "background-color": "#23aae0",
+                  "-webkit-transition": "all .2s ease",
+                  transition: "all .2s ease",
+                  color: "#fff"
+                }}
+                className="navbar1-link underline"
+              >
+                go to your Profile
+              </Link>
+              <span
+                onClick={this.props.logout}
+                className="navbar1-link signup-button"
+              >
+                log-out
+              </span>
+            </Fragment>
           )}
         </div>
 
@@ -127,15 +135,18 @@ handleUserChange = (e) => {
               className="modal-content card"
               style={{ "background-color": "#fff !important" }}
             >
-              <div className="text-white rgba-stylish-strong py-5 px-5"style={{ "background-color": "#fff" }}>
+              <div
+                className="text-white rgba-stylish-strong py-5 px-5"
+                style={{ "background-color": "#fff" }}
+              >
                 <div className="modal-header text-center pb-4">
                   <h3
                     className="modal-title w-100 font-weight-bold"
                     id="myModalLabel"
                   >
                     <strong>SIGN</strong>{" "}
-                    <a className="blue-text font-weight-bold" >
-                      <strong> {this.state.register ? "UP" :  "IN"}</strong>
+                    <a className="blue-text font-weight-bold">
+                      <strong> {this.state.register ? "UP" : "IN"}</strong>
                     </a>
                   </h3>
                   <button
@@ -150,16 +161,16 @@ handleUserChange = (e) => {
 
                 <div className="modal-body">
                   <div className="md-form mb-5">
-
-                    {!this.state.register ? null : <input
-                      type="text"
-                      id="Form-email4"
-                      name='name'
-                      onChange={this.handleUserChange}
-                      placeholder="Name"
-                      className="form-control validate white-text"
-                    />}
-
+                    {!this.state.register ? null : (
+                      <input
+                        type="text"
+                        id="Form-email4"
+                        name="name"
+                        onChange={this.handleUserChange}
+                        placeholder="Name"
+                        className="form-control validate "
+                      />
+                    )}
                   </div>
                   <div className="md-form mb-3">
                     <input
@@ -167,11 +178,10 @@ handleUserChange = (e) => {
                       id="Form-email4"
                       name="email"
                       onChange={this.handleUserChange}
-                      style={{color: "white"}}
+                      style={{ color: "white" }}
                       placeholder="Email"
-                      className="form-control validate white-text"
+                      className="form-control validate "
                     />
-
                   </div>
 
                   <div className="md-form pb-3">
@@ -180,7 +190,7 @@ handleUserChange = (e) => {
                       name="password"
                       id="Form-pass5"
                       onChange={this.handleUserChange}
-                      className="form-control validate white-text"
+                      className="form-control validate "
                       placeholder="password"
                     />
                     <label
@@ -195,22 +205,32 @@ handleUserChange = (e) => {
                       <input
                         type="button"
                         data-dismiss="modal"
-                        onClick={this.state.register ? () => this.props.signUp(this.state.user) : () => this.props.logIn(this.state.user)}
+                        onClick={
+                          this.state.register
+                            ? () => this.props.signUp(this.state.user)
+                            : () => this.props.logIn(this.state.user)
+                        }
                         className="btn btn-primary btn-block btn-rounded z-depth-1"
-                        value={this.state.register ? "Sign Up" :  "Sign in"}
-                        style={{"background-image": "linear-gradient(to left bottom, #9CECFB 0%, #65C7F7 100%)","background-color":"black important"}}
+                        value={this.state.register ? "Sign Up" : "Sign in"}
+                        style={{
+                          "background-image":
+                            "linear-gradient(to left bottom, #9CECFB 0%, #65C7F7 100%)",
+                          "background-color": "black important"
+                        }}
                       />
                     </div>
                   </div>
                   <div className="row">
                     <div className="col-md-12">
                       <p className="font-small black-text d-flex justify-content-end">
-                        {this.state.register ? "Have an account?" :  "Don't have an account"}
+                        {this.state.register
+                          ? "Have an account?"
+                          : "Don't have an account"}
                         <span
                           onClick={this.toggleRegister}
                           className="blue-text ml-1 font-weight-bold"
                         >
-                        {this.state.register ? "Log in" :  "Sign up"}
+                          {this.state.register ? "Log in" : "Sign up"}
                         </span>
                       </p>
                     </div>
@@ -247,21 +267,21 @@ handleUserChange = (e) => {
               <div className="modal-body mx-3">
                 <div className="md-form mb-3">
                   <i className="fas fa-tag prefix grey-text"> </i>
-                  <label data-error="wrong" data-success="right" for="form-autocomplete">
+                  <label
+                    data-error="wrong"
+                    data-success="right"
+                    for="form-autocomplete"
+                  >
                     Category
                   </label>
 
                   <AutoComplete
-
                     type="text"
                     autocomplete="on"
                     id="form-autocomplete"
                     className="form-control validate"
                     placeholder="Subject"
-
                   />
-
-
                 </div>
 
                 <div className="md-form">
@@ -269,19 +289,22 @@ handleUserChange = (e) => {
                   <textarea
                     type="text"
                     id="form8"
+                    onChange={this.handleChange}
                     className="md-textarea "
                     rows="4"
                   />
                   <label data-error="wrong" data-success="right" for="form8">
                     Your Question.
                   </label>
-
                 </div>
               </div>
 
               {this.props.loggedIn ? (
                 <div className="modal-footer d-flex justify-content-center">
-                  <button className="btn btn-primary">
+                  <button
+                    onClick={this.props.createQuestion}
+                    className="btn btn-primary"
+                  >
                     Submit <i className="fas fa-paper-plane-o ml-1" />
                   </button>
                 </div>
@@ -309,10 +332,16 @@ handleUserChange = (e) => {
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
-      loggedIn: state.user.loggedIn
-  }
-}
+    loggedIn: state.user.loggedIn,
+    statement: state.draft.statement
+  };
+};
 
-export default withRouter(connect(mapStateToProps,{signUp,logIn,logout})(NavBar))
+export default withRouter(
+  connect(
+    mapStateToProps,
+    { signUp, logIn, logout, onChangeStatement, createQuestion }
+  )(NavBar)
+);

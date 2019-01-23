@@ -1,51 +1,58 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
-import Select from 'react-select';
-import { withStyles } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
-import NoSsr from '@material-ui/core/NoSsr';
-import TextField from '@material-ui/core/TextField';
-import Paper from '@material-ui/core/Paper';
-import Chip from '@material-ui/core/Chip';
-import MenuItem from '@material-ui/core/MenuItem';
-import CancelIcon from '@material-ui/icons/Cancel';
-import { emphasize } from '@material-ui/core/styles/colorManipulator';
+import React from "react";
+import PropTypes from "prop-types";
+import classNames from "classnames";
+import Select from "react-select";
+import { withStyles } from "@material-ui/core/styles";
+import Typography from "@material-ui/core/Typography";
+import NoSsr from "@material-ui/core/NoSsr";
+import TextField from "@material-ui/core/TextField";
+import Paper from "@material-ui/core/Paper";
+import Chip from "@material-ui/core/Chip";
+import MenuItem from "@material-ui/core/MenuItem";
+import CancelIcon from "@material-ui/icons/Cancel";
+import { emphasize } from "@material-ui/core/styles/colorManipulator";
+
+import { connect } from "react-redux";
+import {
+  createQuestion,
+  addCategory,
+  deleteCategory
+} from "../redux/actions/questions";
 
 const suggestions = [
-  { label: 'Front-end' },
-  { label: 'Back-end' },
-  { label: 'Full-stack' },
-  { label: 'Middle-Tier' },
-  { label: 'Web' },
-  { label: 'Desktop' },
-  { label: 'Mac' },
-  { label: 'Mobile' },
-  { label: 'Graphics' },
-  { label: 'Design' },
-  { label: 'Data' },
-  { label: 'DevOps' },
-  { label: 'Embedded' },
-  { label: 'High-Level' },
-  { label: 'Low-Level' },
-  { label: 'WordPress' },
-  { label: 'Security' },
-  { label: 'Java' },
-  { label: 'JavaScript' },
-  { label: 'Ruby' },
-  { label: 'Ruby on Rails' },
-  { label: 'Environment' },
-  { label: 'Rails' },
-  { label: 'Heroku' },
-  { label: 'Deployment' },
-  { label: 'React' },
-  { label: 'Embedded Ruby' },
-  { label: 'PHP' },
-  { label: 'Redux' },
-  { label: 'Hooks' }
+  { label: "Front-end" },
+  { label: "Back-end" },
+  { label: "Full-stack" },
+  { label: "Middle-Tier" },
+  { label: "Web" },
+  { label: "Desktop" },
+  { label: "Mac" },
+  { label: "Mobile" },
+  { label: "Graphics" },
+  { label: "Design" },
+  { label: "Data" },
+  { label: "DevOps" },
+  { label: "Embedded" },
+  { label: "High-Level" },
+  { label: "Low-Level" },
+  { label: "WordPress" },
+  { label: "Security" },
+  { label: "Java" },
+  { label: "JavaScript" },
+  { label: "Ruby" },
+  { label: "Ruby on Rails" },
+  { label: "Environment" },
+  { label: "Rails" },
+  { label: "Heroku" },
+  { label: "Deployment" },
+  { label: "React" },
+  { label: "Embedded Ruby" },
+  { label: "PHP" },
+  { label: "Redux" },
+  { label: "Hooks" }
 ].map(suggestion => ({
   value: suggestion.label,
-  label: suggestion.label,
+  label: suggestion.label
 }));
 
 const styles = theme => ({
@@ -55,46 +62,48 @@ const styles = theme => ({
     padding: "15%"
   },
   input: {
-    display: 'flex',
-    padding: 0,
+    display: "flex",
+    padding: 0
   },
   valueContainer: {
-    display: 'flex',
-    flexWrap: 'wrap',
+    display: "flex",
+    flexWrap: "wrap",
     flex: 1,
-    alignItems: 'center',
-    overflow: 'hidden',
+    alignItems: "center",
+    overflow: "hidden"
   },
   chip: {
-    margin: `${theme.spacing.unit / 2}px ${theme.spacing.unit / 4}px`,
+    margin: `${theme.spacing.unit / 2}px ${theme.spacing.unit / 4}px`
   },
   chipFocused: {
     backgroundColor: emphasize(
-      theme.palette.type === 'light' ? theme.palette.grey[300] : theme.palette.grey[700],
-      0.08,
-    ),
+      theme.palette.type === "light"
+        ? theme.palette.grey[300]
+        : theme.palette.grey[700],
+      0.08
+    )
   },
   noOptionsMessage: {
-    padding: `${theme.spacing.unit}px ${theme.spacing.unit * 2}px`,
+    padding: `${theme.spacing.unit}px ${theme.spacing.unit * 2}px`
   },
   singleValue: {
-    fontSize: 16,
+    fontSize: 16
   },
   placeholder: {
-    position: 'absolute',
+    position: "absolute",
     left: 2,
-    fontSize: 16,
+    fontSize: 16
   },
   paper: {
-    position: 'absolute',
+    position: "absolute",
     zIndex: 1,
     marginTop: theme.spacing.unit,
     left: 0,
-    right: 0,
+    right: 0
   },
   divider: {
-    height: theme.spacing.unit * 2,
-  },
+    height: theme.spacing.unit * 2
+  }
 });
 
 function NoOptionsMessage(props) {
@@ -123,8 +132,8 @@ function Control(props) {
           className: props.selectProps.classes.input,
           inputRef: props.innerRef,
           children: props.children,
-          ...props.innerProps,
-        },
+          ...props.innerProps
+        }
       }}
       {...props.selectProps.textFieldProps}
     />
@@ -138,7 +147,7 @@ function Option(props) {
       selected={props.isFocused}
       component="div"
       style={{
-        fontWeight: props.isSelected ? 500 : 400,
+        fontWeight: props.isSelected ? 500 : 400
       }}
       {...props.innerProps}
     >
@@ -161,14 +170,21 @@ function Placeholder(props) {
 
 function SingleValue(props) {
   return (
-    <Typography className={props.selectProps.classes.singleValue} {...props.innerProps}>
+    <Typography
+      className={props.selectProps.classes.singleValue}
+      {...props.innerProps}
+    >
       {props.children}
     </Typography>
   );
 }
 
 function ValueContainer(props) {
-  return <div className={props.selectProps.classes.valueContainer}>{props.children}</div>;
+  return (
+    <div className={props.selectProps.classes.valueContainer}>
+      {props.children}
+    </div>
+  );
 }
 
 function MultiValue(props) {
@@ -177,7 +193,7 @@ function MultiValue(props) {
       tabIndex={-1}
       label={props.children}
       className={classNames(props.selectProps.classes.chip, {
-        [props.selectProps.classes.chipFocused]: props.isFocused,
+        [props.selectProps.classes.chipFocused]: props.isFocused
       })}
       onDelete={props.removeProps.onClick}
       deleteIcon={<CancelIcon {...props.removeProps} />}
@@ -187,7 +203,11 @@ function MultiValue(props) {
 
 function Menu(props) {
   return (
-    <Paper square className={props.selectProps.classes.paper} {...props.innerProps}>
+    <Paper
+      square
+      className={props.selectProps.classes.paper}
+      {...props.innerProps}
+    >
       {props.children}
     </Paper>
   );
@@ -201,19 +221,17 @@ const components = {
   Option,
   Placeholder,
   SingleValue,
-  ValueContainer,
+  ValueContainer
 };
 
 class IntegrationReactSelect extends React.Component {
   state = {
     single: null,
-    multi: null,
+    multi: null
   };
 
   handleChange = name => value => {
-    this.setState({
-      [name]: value,
-    });
+    this.props.addCategory(value.map(e => e.value));
   };
 
   render() {
@@ -223,29 +241,28 @@ class IntegrationReactSelect extends React.Component {
       input: base => ({
         ...base,
         color: theme.palette.text.primary,
-        '& input': {
-          font: 'inherit',
-        },
-      }),
+        "& input": {
+          font: "inherit"
+        }
+      })
     };
 
     return (
-      <div className={classes.root} >
-        <NoSsr
-        >
+      <div className={classes.root}>
+        <NoSsr>
           <Select
             classes={classes}
             styles={selectStyles}
             textFieldProps={{
               InputLabelProps: {
-                shrink: true,
-              },
+                shrink: true
+              }
             }}
             options={suggestions}
             components={components}
-            value={this.state.multi}
+            value={this.props.multi}
             height="20%"
-            onChange={this.handleChange('multi')}
+            onChange={this.handleChange("multi")}
             placeholder="Select one or more categories"
             isMulti
           />
@@ -257,7 +274,18 @@ class IntegrationReactSelect extends React.Component {
 
 IntegrationReactSelect.propTypes = {
   classes: PropTypes.object.isRequired,
-  theme: PropTypes.object.isRequired,
+  theme: PropTypes.object.isRequired
 };
 
-export default withStyles(styles, { withTheme: true })(IntegrationReactSelect);
+const mapStateToProps = state => {
+  return {
+    multi: state.draft.multi
+  };
+};
+
+export default withStyles(styles, { withTheme: true })(
+  connect(
+    mapStateToProps,
+    { createQuestion, addCategory, deleteCategory }
+  )(IntegrationReactSelect)
+);
