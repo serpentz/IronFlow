@@ -11,8 +11,8 @@ class QuestionPage extends Component {
 
   render() {
 
-    let statement = this.props.selected ? this.props.selected.statement : "alksdflkajslfkjasdlfkjadslfjsld"
-    debugger
+    let statement = this.props.selected ? this.props.selected.statement : "THIS IS A STATEMENT"
+
     return (
       <div className={cx(styles["body-4"])} style={{ "padding-top": "6%" }}>
         <div className={cx(styles["section-2"])}>
@@ -47,7 +47,7 @@ class QuestionPage extends Component {
                         styles["information"]
                       )}
                     >
-                      FIRST LAST
+                    {this.props.selected.user.name}
                     </h1>
                     <div
                       className={cx(styles["category"], styles["information"])}
@@ -123,7 +123,7 @@ class QuestionPage extends Component {
                         >
                           <div className={cx(styles["w-dyn-item"])}>
                             <a
-                              href="/airdrop/paxpago"
+                              href="/feed"
                               className={cx(
                                 styles["link-block-15"],
                                 styles["w-inline-block"]
@@ -204,7 +204,7 @@ class QuestionPage extends Component {
                 <div
                   className={cx(styles["airdrop-information"], styles["_1"])}
                 >
-                  <Comments />
+                  <Comments comments={this.props.selected.answers} />
                 </div>
               </div>
             </div>

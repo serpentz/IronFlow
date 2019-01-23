@@ -12,7 +12,7 @@ import "../css/Modal.css";
 
 class NavBar extends Component {
   state = {
-    register: true,
+    register: false,
     question: {
       statement: "",
       category: ""

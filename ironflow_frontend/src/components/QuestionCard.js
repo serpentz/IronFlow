@@ -20,7 +20,10 @@ class QuestionCard extends Component {
     return (
       <Link to="/question">
         <div
-          onClick={() => this.props.selectQuestion(this.props.question)}
+          onClick={() => {
+            alert(this.props.question.statement);
+            this.props.selectQuestion(this.props.question);
+          }}
           className="my-5"
         >
           <div

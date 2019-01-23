@@ -190,7 +190,7 @@ module Resolvers
       name 'AnswerInput'
 
       argument :statement, types.String
-      argument :question_id, types.Int
+      argument :question_id, types.String
 
 
     end
@@ -212,7 +212,7 @@ module Resolvers
     def call(_obj, _args, _ctx)
       @id = Adapter::Auth.new.decoded_token _args[:user][:token]
 
-      byebug
+
        unless @id
            OpenStruct.new(
              errors: "invalid token"
@@ -222,7 +222,7 @@ module Resolvers
         @user =  User.find @id
 
 
-      @answer = Answer.create statement: _args[:answer][:statement], user: @user ,question_id: _args[:answer][:question_id]
+      @answer = Answer.create statement: _args[:answer][:statement], user: @user ,question_id: _args[:answer][:question_id].to_i
 
       # ensures we created the user
       unless @answer.valid?

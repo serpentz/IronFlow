@@ -1,6 +1,7 @@
 let initialState = {
   questions: [],
-  selected: null
+  selected: null,
+  errors: ""
 };
 
 const questionsReducer = (oldState = initialState, action) => {
@@ -21,6 +22,10 @@ const questionsReducer = (oldState = initialState, action) => {
       } else {
         return oldState;
       }
+    case "SELECT_QUESTION":
+      return { ...oldState, selected: action.question };
+    case "CREATE_ANSWER_RESPONSE":
+      return { ...oldState, errors: action.payload };
     default:
       return oldState;
   }
