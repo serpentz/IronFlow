@@ -34,7 +34,6 @@ module Resolvers
       )
     end
   end
-
   class SignInUser < GraphQL::Function
     argument :user, Types::UserInputType
 
@@ -71,7 +70,36 @@ module Resolvers
       )
     end
   end
+  class GetProfile < GraphQL::Function
+    argument :token, types.String
 
+    type do
+      name 'getProfilePayload'
+
+      field :user, Types::UserType
+      field :errors, types.String
+    end
+
+    def call(_obj, args, _ctx)
+      @id = Adapter::Auth.new.decoded_token(args[:token])
+
+      byebug
+      @user = User.find @id.to_i
+
+      # ensures we found the user
+      unless @user
+        return OpenStruct.new(
+          errors: "Invalid Token"
+        )
+      end
+      # ensures the user's password is correct
+
+
+      OpenStruct.new(
+        user: @user
+      )
+    end
+  end
   class AddHobby < GraphQL::Function
     # TODO: define return fields
 

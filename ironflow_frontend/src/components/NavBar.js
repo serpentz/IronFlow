@@ -70,6 +70,11 @@ class NavBar extends Component {
           <Link to="home" className="navbar1-link underline hider">
             Home
           </Link>
+
+          <Link to="/feed" className="navbar1-link underline hider">
+            Feed
+          </Link>
+
           <span
             className="navbar1-link underline hider"
             data-toggle="modal"
@@ -80,9 +85,7 @@ class NavBar extends Component {
           <Link to="about" className="navbar1-link underline hider">
             About
           </Link>
-          <Link to="/blogs" className="navbar1-link underline hider">
-            Blogs
-          </Link>
+
           {!this.props.loggedIn ? (
             <Fragment>
               <span

@@ -7,6 +7,7 @@ module Types
     field :addHobby, function: Resolvers::AddHobby.new
     field :createQuestion, function: Resolvers::CreateQuestion.new
     field :createAnswer, function: Resolvers::CreateAnswer.new
-    
+    field :getProfile, function: Resolvers::GetProfile.new
+
   end
 end

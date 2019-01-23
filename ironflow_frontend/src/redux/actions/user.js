@@ -54,6 +54,57 @@ const logIn = (query) => {
                    .catch(err => console.warn(err))
        }
    };
+const getProfile = (stringToken) => {
+
+  let token = `token:  "${stringToken}"`
+  let formatedQuery =
+  `mutation {
+    getProfile(${token}) {
+      user {
+        id
+        email
+        name
+        image_url
+        profile {
+          id
+        }
+        answers{
+          id
+          statement
+        }
+        questions{
+          id
+          statement
+          answers{
+            id
+            statement
+            user{
+              image_url
+              id
+              name
+            }
+          }
+        }
+      }
+      errors
+    }
+  }
+  `
+
+
+       return (dispatch) => {
+           dispatch({type: "LOGIN_ATTEMPT"})
+           return request(GRAPH_QL_ENDPOINT,formatedQuery)
+                   .then(response => {
+                     if(response.getProfile){
+                       dispatch({type: "CREATE_USER_RESPONSE_SUCCESS", payload: response.getProfile.user})
+                     }
+
+                   }
+                   )
+                   .catch(err => console.warn(err))
+       }
+   };
 
 const signUp = (user) => {
 let mutation = `user: ${JSON.stringify(user).replace(/\"([^(\")"]+)\":/g,"$1:")}`
@@ -97,5 +148,6 @@ const logout = () => {
 export  {
   logout,
   logIn,
-  signUp
+  signUp,
+  getProfile
 }
