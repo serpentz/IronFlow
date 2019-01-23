@@ -47,7 +47,7 @@ arr.each do |cat| Category.find_or_create_by title: cat[:label] end
   @user = User.create name: "#{Faker::Name.first_name} #{Faker::Name.last_name}", email: Faker::Internet.email,password: "password", points: Faker::Number.number(2)
   @categories = [Category.find(rand(1..30)),Category.find(rand(1..30)),Category.find(rand(1..30)),Category.find(rand(1..30))]
 
-  @question = Question.find_or_create_by statement: Faker::Lorem.paragraph(rand(4), true), user: @user, categories: @categories
+  @question = Question.find_or_create_by statement: Faker::Lorem.paragraph(rand(4), true), user: @user, categories: @categories, view_count: rand(122)
 
 
  end

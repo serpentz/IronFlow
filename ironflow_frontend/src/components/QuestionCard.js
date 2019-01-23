@@ -2,12 +2,21 @@ import React, { Component, Fragment } from "react";
 
 import { Chip, Avatar } from "@material-ui/core";
 
-import { Link } from "react-router-dom";
+import { Link,withRouter, Redirect } from "react-router-dom";
+import {connect} from "react-redux"
 
-export default class QuestionCard extends Component {
+import {selectQuestion} from "../redux/actions/questions"
+
+class QuestionCard extends Component {
+
+
   render() {
+    let {id,statement,categories, view_count, answers,user: {id:user_id ,name}} = this.props.question
+
     return (
-      <Link className="my-5" to="/question">
+      <Link to="/question" >
+
+      <div onClick={()=>this.props.selectQuestion(this.props.question)} className="my-5">
         <div
           style={{
             height: "1px",
@@ -18,6 +27,7 @@ export default class QuestionCard extends Component {
         >
           {" "}
         </div>
+
         <div className="row">
           <div className="col-lg-7 col-xl-9" style={{ margin: "auto" }}>
             <p
@@ -30,17 +40,15 @@ export default class QuestionCard extends Component {
               }}
             >
               {" "}
-              <strong> lorum ipsum alskdjo aysdl l;skd;u adk ? </strong>
+              <strong> {statement} </strong>
             </p>
 
-            <Chip style={chipStyle} label="Full-stack" />
-            <Chip style={chipStyle} label="Ruby" />
-            <Chip style={chipStyle} label="RoR" />
-            <Chip style={chipStyle} label="React" />
+            {categories.map((cat)=> <Link to={`/feed/${cat.title}`}><Chip style={chipStyle} key={cat.id}label={cat.title}/></Link>)}
+
             <p style={{ margin: "10px" }}>
-              solved by{" "}
-              <Link className="font-weight-bold" to="/profile">
-                Jessica Clark
+              asked by{" "}
+              <Link className="font-weight-bold" to={`/profile/${user_id}`}>
+                {name}
               </Link>
               , 16/04/2018
             </p>
@@ -53,12 +61,12 @@ export default class QuestionCard extends Component {
 
               <div className="row">
                 <div className="col-md-6">
-                  <p className="grey-text mb-md-0 mb-5"> 9 </p>
+                  <p className="grey-text mb-md-0 mb-5"> {view_count} </p>
                   <h6
                     className="my-4"
                     style={{
                       color: "grey",
-                      "font-size": "11px"
+                      "font-size": "8px"
                     }}
                   >
                     Views
@@ -66,12 +74,12 @@ export default class QuestionCard extends Component {
                   <i className="far fa-eye fa-1x grey-text" />
                 </div>
                 <div className="col-md-6">
-                  <p className="grey-text mb-md-0 mb-5"> 9 </p>
+                  <p className="grey-text mb-md-0 mb-5"> {answers.length} </p>
                   <h6
                     className="my-4"
                     style={{
                       color: "grey",
-                      "font-size": "11px"
+                      "font-size": "8px"
                     }}
                   >
                     Answers
@@ -82,10 +90,18 @@ export default class QuestionCard extends Component {
             </section>
           </div>
         </div>
+      </div>
       </Link>
     );
   }
 }
+const mapStateToProps = state => {
+  return {
+    selected: state.questions.selected
+  }
+}
+
+export default withRouter(connect(mapStateToProps,{selectQuestion})(QuestionCard))
 
 const chipStyle = {
   height: "25px",

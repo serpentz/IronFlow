@@ -1,12 +1,18 @@
 import React, { Component, Fragment } from "react";
-import { Link } from "react-router-dom";
+import { Link , withRouter} from "react-router-dom";
+import {connect} from 'react-redux'
 import cx from "classnames";
 import Comments from "./Comments";
 import styles from "../css/Main.module.css";
 import commentStyles from "../css/Comments.module.css";
 
 class QuestionPage extends Component {
+
+
   render() {
+
+    let statement = this.props.selected ? this.props.selected.statement : "alksdflkajslfkjasdlfkjadslfjsld"
+    debugger
     return (
       <div className={cx(styles["body-4"])} style={{ "padding-top": "6%" }}>
         <div className={cx(styles["section-2"])}>
@@ -174,15 +180,7 @@ class QuestionPage extends Component {
                     )}
                   >
                     <p>
-                      Zorff features an integrated payment solution and an
-                      exchange platform poised as a decentralized market place
-                      which enables buyers and sellers to trade directly in any
-                      crypto and fiat currency using any method of payment.
-                      Zorff is a systematically fast and secure payment solution
-                      that enables smooth transfer of funds globally. Zorff
-                      facilitates merchants’ financial transactions using
-                      blockchain technology as an intermediary with minimized
-                      transaction costs.
+                      {statement}
                     </p>
                   </div>
 
@@ -238,7 +236,7 @@ class QuestionPage extends Component {
         <div className={cx(styles["section-13"])}>
            <div className={cx(styles["div-block-52"])}>
               <div>
-              
+
               </div>
            </div>
         </div>
@@ -331,4 +329,14 @@ class QuestionPage extends Component {
   }
 }
 
-export default QuestionPage;
+
+
+const mapStateToProps = state => {
+        return {
+            selected: state.questions.selected
+        }
+};
+
+
+
+export default withRouter(connect(mapStateToProps)(QuestionPage))

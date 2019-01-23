@@ -1,5 +1,6 @@
 let initialState = {
-  questions: []
+  questions: [],
+  selected: null
 }
 
 const questionsReducer = (oldState = initialState, action) => {
@@ -20,6 +21,10 @@ const questionsReducer = (oldState = initialState, action) => {
             } else {
                 return oldState
             }
+            break;
+  case "SELECT_QUESTION":
+            debugger
+            return {...oldState, selected: action.question}
 
 }
   return oldState

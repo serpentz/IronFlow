@@ -1,6 +1,9 @@
 .form-dark .font-small {
   font-size: 0.8rem;
 }
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color:    #909;
+}
 
 .form-dark [type="radio"] + label,
 .form-dark [type="checkbox"] + label {

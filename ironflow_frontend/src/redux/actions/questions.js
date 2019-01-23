@@ -25,20 +25,24 @@ let  mutation = `question: ${JSON.stringify(question).replace(/\"([^(\")"]+)\":/
   }
 }
 
-const fetchQuestions = (query = `{ questions { categories { id title } id statement answers { id statement user {  id name email } } user { id name email } } }`) => {
+const fetchQuestions = (query = `{ questions { view_count categories { id title } id statement answers { id statement user {  id name email } } user { id name email } } }`) => {
 
        return (dispatch) => {
            dispatch({type: "GET_QUESTIONS_ATTEMPT"})
            return request(GRAPH_QL_ENDPOINT,query)
                    .then(response => {
-                     debugger
                      dispatch({type: "GET_QUESTIONS_RESPONSE", payload: response.questions})
                    })
 
        }
    }
 
+   const selectQuestion = (question) => {
+          return {type: "SELECT_QUESTION", question}
+   }
+
 export  {
   fetchQuestions,
-  createQuestion
+  createQuestion,
+  selectQuestion
 }

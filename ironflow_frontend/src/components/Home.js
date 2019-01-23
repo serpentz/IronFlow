@@ -2,14 +2,17 @@ import styles from '../Home.module.css'
 import profile from '../Profile.module.css'
 
 import React, { Component,Fragment } from "react";
+import {connect}from 'react-redux'
 import QuestionCard from './QuestionCard'
-import {Link} from 'react-router-dom'
+import {Link,withRouter} from 'react-router-dom'
 import cx from 'classnames';
 
-export default class Home extends Component {
+class Home extends Component {
+
+
 
   render() {
-      let arr = [7,6,6,5,4,3,2,1]
+
     return (
                 <div>
             <div
@@ -68,7 +71,13 @@ export default class Home extends Component {
                         className={cx(styles["w-tab-pane"],styles["w--tab-active"])}
                         style={{ opacity: 1, transition: "opacity 300ms ease 0s" }}
                       >
-                          {arr.map((a)=> <QuestionCard />)}
+                          {
+
+                            this.props.questions.map((a)=> {
+                               
+                               return <QuestionCard question={a}/>}
+                             )
+                          }
 
                           </div>
                         </div>
@@ -100,11 +109,13 @@ export default class Home extends Component {
                 <div className={styles["header-center"]} />
               </section>
             </div>
-          </div>
-
-
-
-
+        </div>
     );
   }
 }
+const mapStateToProps = (state) => {
+  return {
+      questions: state.questions.questions
+  }
+}
+export default withRouter(connect(mapStateToProps)(Home));

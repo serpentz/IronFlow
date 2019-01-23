@@ -1,6 +1,8 @@
 import React, { Component, Fragment } from "react";
 
-import { Route, Switch, Link } from "react-router-dom";
+import { Route, Switch, Link , withRouter} from "react-router-dom";
+import {connect} from "react-redux"
+import {signUp,logIn,logout} from '../redux/actions/user'
 import logo from "../images/logo.png";
 import AutoComplete from './AutoComplete'
 
@@ -13,12 +15,20 @@ class NavBar extends Component {
       question: {
           statement: "",
           category: ""
+      },
+      user:{
+        email: "",
+        name: "",
+        password:""
       }
 
   }
 
 handleChange = (e) => {
   this.setState({...this.state, question: {...this.state.question, [e.target.name]: e.target.value}})
+}
+handleUserChange = (e) => {
+  this.setState({...this.state, user: {...this.state.user, [e.target.name]: e.target.value}})
 }
 
   handleCreateQuestionSubmit = (e) => {
@@ -27,9 +37,9 @@ handleChange = (e) => {
         this.props.createQuestion(this.state.question)
   }
 
-  setCurrentUser = () => {
-    this.setState({ user: !this.state.user });
-  };
+  toggleRegister = () => {
+    this.setState({register: !this.state.register})
+  }
   componentDidMount(){
 
   }
@@ -73,7 +83,7 @@ handleChange = (e) => {
           <Link to="/blogs" className="navbar1-link underline hider">
             Blogs
           </Link>
-          {!this.state.user ? (
+          {!this.props.loggedIn ? (
             <Fragment>
 
             <span
@@ -96,7 +106,7 @@ handleChange = (e) => {
                 transition: "all .2s ease",
                 color: "#fff"}}className="navbar1-link underline">go to your Profile</Link>
             <span
-              onClick={this.setCurrentUser}
+              onClick={this.props.logout}
               className="navbar1-link signup-button"
             >
               log-out
@@ -115,17 +125,17 @@ handleChange = (e) => {
           <div className="modal-dialog form-dark" role="document">
             <div
               className="modal-content card"
-              style={{ "background-color": "#fff" }}
+              style={{ "background-color": "#fff !important" }}
             >
-              <div className="text-white rgba-stylish-strong py-5 px-5 ">
+              <div className="text-white rgba-stylish-strong py-5 px-5"style={{ "background-color": "#fff" }}>
                 <div className="modal-header text-center pb-4">
                   <h3
-                    className="modal-title w-100 white-text font-weight-bold"
+                    className="modal-title w-100 font-weight-bold"
                     id="myModalLabel"
                   >
                     <strong>SIGN</strong>{" "}
-                    <a className="blue-text font-weight-bold">
-                      <strong> UP</strong>
+                    <a className="blue-text font-weight-bold" >
+                      <strong> {this.state.register ? "UP" :  "IN"}</strong>
                     </a>
                   </h3>
                   <button
@@ -139,19 +149,25 @@ handleChange = (e) => {
                 </div>
 
                 <div className="modal-body">
-                  <div className="md-form mb-3">
-                    <input
-                      type="email"
+                  <div className="md-form mb-5">
+
+                    {!this.state.register ? null : <input
+                      type="text"
                       id="Form-email4"
+                      name='name'
+                      onChange={this.handleUserChange}
                       placeholder="Name"
                       className="form-control validate white-text"
-                    />
+                    />}
 
                   </div>
                   <div className="md-form mb-3">
                     <input
-                      type="email"
+                      type="text"
                       id="Form-email4"
+                      name="email"
+                      onChange={this.handleUserChange}
+                      style={{color: "white"}}
                       placeholder="Email"
                       className="form-control validate white-text"
                     />
@@ -161,7 +177,9 @@ handleChange = (e) => {
                   <div className="md-form pb-3">
                     <input
                       type="password"
+                      name="password"
                       id="Form-pass5"
+                      onChange={this.handleUserChange}
                       className="form-control validate white-text"
                       placeholder="password"
                     />
@@ -177,23 +195,23 @@ handleChange = (e) => {
                       <input
                         type="button"
                         data-dismiss="modal"
-                        onClick={this.setCurrentUser}
+                        onClick={this.state.register ? () => this.props.signUp(this.state.user) : () => this.props.logIn(this.state.user)}
                         className="btn btn-primary btn-block btn-rounded z-depth-1"
-                        value="Sign up"
-                        style={{ "backgroud-color": "blue" }}
+                        value={this.state.register ? "Sign Up" :  "Sign in"}
+                        style={{"background-image": "linear-gradient(to left bottom, #9CECFB 0%, #65C7F7 100%)","background-color":"black important"}}
                       />
                     </div>
                   </div>
                   <div className="row">
                     <div className="col-md-12">
-                      <p className="font-small white-text d-flex justify-content-end">
-                        Have an account?{" "}
-                        <a
-                          href="#"
-                          className="green-text ml-1 font-weight-bold"
+                      <p className="font-small black-text d-flex justify-content-end">
+                        {this.state.register ? "Have an account?" :  "Don't have an account"}
+                        <span
+                          onClick={this.toggleRegister}
+                          className="blue-text ml-1 font-weight-bold"
                         >
-                          Log in
-                        </a>
+                        {this.state.register ? "Log in" :  "Sign up"}
+                        </span>
                       </p>
                     </div>
                   </div>
@@ -232,9 +250,7 @@ handleChange = (e) => {
                   <label data-error="wrong" data-success="right" for="form-autocomplete">
                     Category
                   </label>
-                  <label data-error="wrong" data-success="right" for="form-autocomplete">
-                    Category
-                  </label>
+
                   <AutoComplete
 
                     type="text"
@@ -263,9 +279,9 @@ handleChange = (e) => {
                 </div>
               </div>
 
-              {this.state.user ? (
+              {this.props.loggedIn ? (
                 <div className="modal-footer d-flex justify-content-center">
-                  <button className="btn btn-unique">
+                  <button className="btn btn-primary">
                     Submit <i className="fas fa-paper-plane-o ml-1" />
                   </button>
                 </div>
@@ -293,4 +309,10 @@ handleChange = (e) => {
   }
 }
 
-export default NavBar;
+const mapStateToProps = (state) => {
+  return {
+      loggedIn: state.user.loggedIn
+  }
+}
+
+export default withRouter(connect(mapStateToProps,{signUp,logIn,logout})(NavBar))

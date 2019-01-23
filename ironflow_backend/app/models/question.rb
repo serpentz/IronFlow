@@ -9,11 +9,9 @@ class Question < ApplicationRecord
 
   after_create :check_categories
 
-
-
-
   def check_categories
     self.categories ||= [Category.create_or_find_by(title: "Not Defined")]
+    self.view_count ||= 9
   end
 
 
