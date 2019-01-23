@@ -10,11 +10,14 @@ class Comments extends Component {
   };
 
   handleChange = ele => {
-    this.setState({ answer: ele.value });
+    this.setState({ answer: ele.target.value }, () =>
+      console.log(this.state.answer)
+    );
   };
 
   handleSubmit = e => {
     e.preventDefault();
+
     this.props.submitAnswer({
       statement: this.state.answer,
       question_id: this.props.selected.id

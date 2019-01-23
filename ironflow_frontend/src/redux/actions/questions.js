@@ -56,6 +56,7 @@ const onChangeStatement = statement => {
 };
 const submitAnswer = answer => {
   //put in callback for the question as well
+  alert(JSON.stringify(answer));
 
   let token = { token: localStorage.getItem("token") };
 
@@ -67,8 +68,6 @@ const submitAnswer = answer => {
     /\"([^(\")"]+)\":/g,
     "$1:"
   )}`;
-
-  debugger;
 
   let formatedMutation = `mutation {
                               createAnswer(${parsedAnswer}, ${parsedUser}){
