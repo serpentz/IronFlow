@@ -8,10 +8,6 @@ import commentStyles from "../css/Comments.module.css";
 
 class QuestionPage extends Component {
   render() {
-    let statement = this.props.selected
-      ? this.props.selected.statement
-      : "THIS IS A STATEMENT";
-
     return (
       <Fragment>
         {!this.props.selected ? (
@@ -36,7 +32,7 @@ class QuestionPage extends Component {
                             width="85"
                             height="85"
                             alt="USER"
-                            src="https://mdbootstrap.com/img/Photos/Avatars/img%20(20).jpg"
+                            src={this.props.selected.user.image_url}
                             className={cx(
                               styles["airdrop-logo"],
                               styles["airdrop-image"]
@@ -58,12 +54,11 @@ class QuestionPage extends Component {
                             styles["information"]
                           )}
                         >
-                          Full Stackc Dev
+                          Full Stack Dev
                         </div>
 
                         <Link
                           to="/profile"
-                          href="http://bit.ly/zorffblockchain"
                           className={cx(styles["button"], styles["w-button"])}
                         >
                           Visit Profile
@@ -136,7 +131,7 @@ class QuestionPage extends Component {
                                     width="60"
                                     height="60"
                                     alt="Airdrop"
-                                    src="https://global-uploads.webflow.com/5ba8d21231e0097188d032e7/5c42a9c09f5b8c326ce303dd_paxpago%20airdrop%20ico%20bounty.jpg"
+                                    src="https://cdn-images-1.medium.com/max/1200/1*dlapmYAhWBkrFuHm020qlg.png"
                                     className={cx(styles["image-4"])}
                                   />
                                   <h5 className={cx(styles["heading-9"])}>
@@ -175,15 +170,16 @@ class QuestionPage extends Component {
                           styles["description"]
                         )}
                       >
-                        Description
+                        Question
                       </h1>
                       <div
                         className={cx(
                           styles["airdrop-project-information"],
                           styles["w-richtext"]
                         )}
+                        style={{ "font-size": "50px !important" }}
                       >
-                        <p>{statement}</p>
+                        <p>{this.props.selected.statement}</p>
                       </div>
 
                       <div

@@ -29,7 +29,7 @@ const createQuestion = () => {
 };
 
 const fetchQuestions = (
-  query = `{ questions { view_count categories { id title } id statement answers { id statement user {  id name email } } user { id name email } } }`
+  query = `{ questions { view_count categories { id title } id statement answers { id statement user {  id name email image_url} } user { id name email image_url} } }`
 ) => {
   return dispatch => {
     dispatch({ type: "GET_QUESTIONS_ATTEMPT" });

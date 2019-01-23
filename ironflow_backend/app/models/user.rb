@@ -13,5 +13,6 @@ class User < ApplicationRecord
 
   def init
     self.profile = Profile.create(user: self)
+    self.image_url ||= "https://www.score.org/sites/all/themes/custom/score/src/images/fpo_avatar.png"
   end
 end

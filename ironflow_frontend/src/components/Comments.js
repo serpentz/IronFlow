@@ -33,9 +33,10 @@ class Comments extends Component {
               return (
                 <div className="media d-block d-md-flex mt-4">
                   <img
+                  style={{}}
                     className="mb-3"
-                    style={{ height: "10vh", "border-radius": "10px" }}
-                    src="https://mdbootstrap.com/img/Photos/Avatars/img (20).jpg"
+                    style={{ height: "5vh", width: "5vh","object-fit": "cover", "border-radius": "50px","background-image": "-webkit-gradient(linear, left top, left bottom, from(#65C7F7), to(#0052D4))"  }}
+                    src={ans.user.image_url || "https://upload.wikimedia.org/wikipedia/commons/7/70/User_icon_BLACK-01.png"}
                     alt="Generic placeholder image"
                   />
                   <div className="media-body text-center text-md-left ml-md-3 ml-0">
@@ -93,6 +94,7 @@ class Comments extends Component {
 const mapStateToProps = state => {
   return {
     loggedIn: state.user.loggedIn,
+    currentUser: state.user.currentUser,
     selected: state.questions.selected
   };
 };
