@@ -18,6 +18,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem'rest-client'
 gem'json'
 gem'faker'
+gem 'ui_faces'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'

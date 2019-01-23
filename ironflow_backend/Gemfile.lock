@@ -146,6 +146,7 @@ GEM
     thread_safe (0.3.6)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
+    ui_faces (0.1.4)
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.5)
@@ -173,6 +174,7 @@ DEPENDENCIES
   spring
   spring-watcher-listen (~> 2.0.0)
   tzinfo-data
+  ui_faces
 
 RUBY VERSION
    ruby 2.4.5p335

@@ -16,8 +16,6 @@ class Comments extends Component {
   };
 
   handleSubmit = e => {
-    e.preventDefault();
-
     this.props.submitAnswer({
       statement: this.state.answer,
       question_id: this.props.selected.id
@@ -28,7 +26,7 @@ class Comments extends Component {
       <Fragment>
         <div className="card card-comments mb-3 wow fadeIn">
           <div className="card-header font-weight-bold">
-            {this.props.comments.length} comment
+            {this.props.comments.length} comments
           </div>
           <div className="card-body">
             {this.props.comments.map(ans => {
@@ -65,9 +63,24 @@ class Comments extends Component {
               </div>
 
               <div className="text-center mt-4">
-                <button className="btn btn-info btn-md" type="submit">
-                  Post
-                </button>
+                {this.props.loggedIn ? (
+                  <button
+                    onClick={this.handleSubmit}
+                    className="btn btn-info btn-md"
+                    type="button"
+                  >
+                    Post
+                  </button>
+                ) : (
+                  <button
+                    data-toggle="modal"
+                    data-target="#darkModalForm"
+                    className="btn btn-info btn-md"
+                    type="button"
+                  >
+                    Post
+                  </button>
+                )}
               </div>
             </form>
           </div>

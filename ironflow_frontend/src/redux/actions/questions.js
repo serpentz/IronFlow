@@ -56,7 +56,6 @@ const onChangeStatement = statement => {
 };
 const submitAnswer = answer => {
   //put in callback for the question as well
-  alert(JSON.stringify(answer));
 
   let token = { token: localStorage.getItem("token") };
 
