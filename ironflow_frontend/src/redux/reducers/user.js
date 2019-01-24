@@ -1,7 +1,8 @@
 let initialState = {
   loggedIn: false,
   currentUser: null,
-  errors: ""
+  errors: "",
+  currentProfile: null
 }
 
 const userReducer = (oldState = initialState, action) => {
@@ -20,6 +21,8 @@ const userReducer = (oldState = initialState, action) => {
                   return {...oldState, loggedIn: false, errors: action.payload}
     case "CREATE_USER_RESPONSE_SUCCESS":
                   return {...oldState, loggedIn: true, currentUser: action.payload}
+    case "SELECT_PROFILE":
+                  return {...oldState, currentProfile: action.payload}
     case "LOGOUT_ATTEMPT": return { currentUser: null, loggedIn : false }
 
   }

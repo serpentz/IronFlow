@@ -2,7 +2,7 @@ import React, { Component, Fragment } from "react";
 
 import { Route, Switch, Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
-import { signUp, logIn, logout } from "../redux/actions/user";
+import { signUp, logIn, logout,selectProfile } from "../redux/actions/user";
 import { onChangeStatement, createQuestion } from "../redux/actions/questions";
 import logo from "../images/logo.png";
 import AutoComplete from "./AutoComplete";
@@ -98,7 +98,8 @@ class NavBar extends Component {
               </span>
             </Fragment>
           ) : (
-            <Fragment>
+            <Fragment >
+              <div onClick={() => this.props.selectProfile(this.props.currentUser.id)}>
               <Link
                 id="go-to-library"
                 to="/profile"
@@ -116,6 +117,7 @@ class NavBar extends Component {
               >
                 go to your Profile
               </Link>
+              </div>
               <span
                 onClick={this.props.logout}
                 className="navbar1-link signup-button"
@@ -338,13 +340,14 @@ class NavBar extends Component {
 const mapStateToProps = state => {
   return {
     loggedIn: state.user.loggedIn,
-    statement: state.draft.statement
+    statement: state.draft.statement,
+    currentUser: state.user.currentUser
   };
 };
 
 export default withRouter(
   connect(
     mapStateToProps,
-    { signUp, logIn, logout, onChangeStatement, createQuestion }
+    { signUp, logIn, logout, onChangeStatement, createQuestion, selectProfile }
   )(NavBar)
 );

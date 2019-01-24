@@ -105,7 +105,6 @@ const getProfile = (stringToken) => {
                    .catch(err => console.warn(err))
        }
    };
-
 const signUp = (user) => {
 let mutation = `user: ${JSON.stringify(user).replace(/\"([^(\")"]+)\":/g,"$1:")}`
 let formatedMutation =`mutation {
@@ -137,6 +136,49 @@ let formatedMutation =`mutation {
     }
    };
 
+const selectProfile = user_id => {
+
+let query = `{
+         user(id: ${user_id}){
+           name
+           email
+           image_url
+          questions{
+            id
+            statement
+            categories{
+              title
+            }
+          }
+          answers{
+            id
+            statement
+            question{
+              statement
+              categories {
+                   title
+                 }
+            }
+          }
+        }
+      }`
+      return dispatch => {
+
+
+         return request(GRAPH_QL_ENDPOINT,query)
+                 .then(response => {
+                   if(response.user){
+                     dispatch({type: "SELECT_PROFILE", payload: response.user})
+                   }else{
+                    alert("response")
+                   }
+
+                 })
+
+      }
+};
+
+
 
 
 const logout = () => {
@@ -149,5 +191,6 @@ export  {
   logout,
   logIn,
   signUp,
-  getProfile
+  getProfile,
+  selectProfile
 }

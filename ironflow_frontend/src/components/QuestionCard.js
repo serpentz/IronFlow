@@ -6,6 +6,7 @@ import { Link, withRouter, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 
 import { selectQuestion } from "../redux/actions/questions";
+import { selectProfile } from "../redux/actions/user";
 
 class QuestionCard extends Component {
   render() {
@@ -59,9 +60,11 @@ class QuestionCard extends Component {
 
               <p style={{ margin: "10px" }}>
                 asked by{" "}
-                <Link className="font-weight-bold" to={`/profile/${user_id}`}>
-                  {name}
-                </Link>
+                <p onClick={() => this.props.selectProfile(user_id)}>
+                  <Link className="font-weight-bold" to="/profile">
+                    {name}
+                  </Link>
+                </p>
                 , 16/04/2018
               </p>
             </div>
@@ -116,7 +119,7 @@ const mapStateToProps = state => {
 export default withRouter(
   connect(
     mapStateToProps,
-    { selectQuestion }
+    { selectQuestion, selectProfile }
   )(QuestionCard)
 );
 

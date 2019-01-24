@@ -2,10 +2,19 @@ import React, { Component } from "react";
 import styles from "../Profile.module.css";
 import cx from "classnames"
 
+import {connect} from 'react-redux'
+
 class Profile extends Component {
   render() {
+
+    if(this.props.currentProfile){
+      let {image_url,name,questions,answers} = this.props.currentProfile
+    }
+
+
     return (
       <div className={cx(styles["section"],styles["home"],styles["front"])} style={{padding: "5%"}}>
+
         <div className={cx(styles["w-layout-grid"],styles["grid-7"],styles["autores"])}>
           <div
             id="w-node-8731ce28ea02-cd5fc69e"
@@ -21,12 +30,12 @@ class Profile extends Component {
             <div
               style={{
                 "background-image":
-                  "url(https://webgradients.com/public/webgradients_png/019%20Malibu%20Beach.png)"
+                  `url(${this.props.currentProfile ? this.props.currentProfile.image_url : "https://uploads-ssl.webflow.com/5bb935bc82df35adf0b4278a/5bd4141f408ea6ecbf3b3e58_5b75692f30c2325a70cc171e_facebook.png"})`
               }}
               className={cx(styles["imagen-peque"],styles["autor"],styles["big"])}
             />
-            <h2>First Last</h2>
-            <div className={cx(styles["author-title"],styles["ocupacion"])}>Full Stack Developer</div>
+            <h2>{this.props.currentProfile ? this.props.currentProfile.name : "First Last"}</h2>
+            <div className={cx(styles["author-title"],styles["ocupacion"])}>{this.props.currentProfile ? this.props.currentProfile.email : "EMAIL"}</div>
             <div className={cx(styles["div-block-37"])}>
               <a
                 href="#"
@@ -36,7 +45,7 @@ class Profile extends Component {
               >
                 <img
                   height="0"
-                  src="https://uploads-ssl.webflow.com/5bb935bc82df35adf0b4278a/5bd4141f408ea6ecbf3b3e58_5b75692f30c2325a70cc171e_facebook.png"
+                  src={this.props.currentProfile ? this.props.currentProfile.image_url : "https://uploads-ssl.webflow.com/5bb935bc82df35adf0b4278a/5bd4141f408ea6ecbf3b3e58_5b75692f30c2325a70cc171e_facebook.png"}
                   alt=""
                   width="0"
                 />
@@ -80,12 +89,13 @@ class Profile extends Component {
             className={cx(styles["grid-block"])}
           >
             <div className={cx(styles["block-header"])}>
-              <h3>Projects</h3>
+              <h3>Answers</h3>
               <div className={cx(styles["header-divider"])} />
             </div>
             <div className={cx(styles["column"],styles["w-dyn-list"])}>
               <div className={cx(styles["w-dyn-items"])}>
-                <div className={cx(styles["collection-item-perspective"],styles["w-dyn-item"])}>
+              {!this.props.currentProfile ?
+                (<div className={cx(styles["collection-item-perspective"],styles["w-dyn-item"])}>
                   <a
                     href="#"
                     className={cx(styles["news-link"],styles["lateral"],styles["w-inline-block"])}
@@ -98,12 +108,9 @@ class Profile extends Component {
                   >
                     <div className={cx(styles["div-news"])}>
                       <div className={cx(styles["div-content"])}>
-                        <div className={cx(styles["tag"],styles["color"])}>Mod 4 project</div>
+                        <div className={cx(styles["tag"],styles["color"])}>Answer Category</div>
                         <p className={cx(styles["titulo"],styles["negro"])}>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing
-                          elit, sed do eiusmod tempor incididunt ut labore et
-                          dolore magna aliqua. Adipiscing enim eu turpis egestas
-                          pretium aenean pharetra magna.
+                          Question
                         </p>
                       </div>
                       <div
@@ -115,38 +122,39 @@ class Profile extends Component {
                       />
                     </div>
                   </a>
-                </div>
-                <div className={cx(styles["collection-item-perspective"],styles["w-dyn-item"])}>
-                  <a
-                    href="#"
-                    className={cx(styles["news-link"],styles["lateral"],styles["w-inline-block"])}
-                    style={{
-                      "will-change": "transform",
-                      transform:
-                        "translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg)",
-                      "transform-style": "preserve-3d"
-                    }}
-                  >
-                    <div className={cx(styles["div-news"])}>
-                      <div className={cx(styles["div-content"])}>
-                        <div className={cx(styles["tag"],styles["color"])}>Mod 5 project</div>
-                        <p className={cx(styles["titulo"],styles["negro"])}>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing
-                          elit, sed do eiusmod tempor incididunt ut labore et
-                          dolore magna aliqua. Adipiscing enim eu turpis egestas
-                          pretium aenean pharetra magna.
-                        </p>
-                      </div>
-                      <div
-                        style={{
-                          "background-image":
-                            "url(https://webgradients.com/public/webgradients_png/019%20Malibu%20Beach.png)"
-                        }}
-                        className={cx(styles["imagen-peque"])}
-                      />
-                    </div>
-                  </a>
-                </div>
+                </div> ) : this.props.currentProfile.answers.map((answer) => {
+                     return (
+                      <div className={cx(styles["collection-item-perspective"],styles["w-dyn-item"])}>
+                       <a
+                         href="#"
+                         className={cx(styles["news-link"],styles["lateral"],styles["w-inline-block"])}
+                         style={{
+                           "will-change": "transform",
+                           transform:
+                             "translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg)",
+                           "transform-style": "preserve-3d"
+                         }}
+                       >
+                         <div className={cx(styles["div-news"])}>
+                           <div className={cx(styles["div-content"])}>
+                             <div className={cx(styles["tag"],styles["color"])}>{answer.question.categories.map(e => e.title).join(", ")}</div>
+                             <p className={cx(styles["titulo"],styles["negro"])}>
+                               {answer.question.statement}
+                             </p>
+                           </div>
+                           <div
+                             style={{
+                               "background-image":
+                                 "url(https://webgradients.com/public/webgradients_png/019%20Malibu%20Beach.png)"
+                             }}
+                             className={cx(styles["imagen-peque"])}
+                           />
+                         </div>
+                       </a>
+                     </div>)
+
+                })}
+
               </div>
             </div>
           </div>
@@ -167,7 +175,8 @@ class Profile extends Component {
             </div>
             <div className={cx(styles["column"],styles["w-dyn-list"])}>
               <div className={cx(styles["collection-list-wrap"],styles["w-dyn-items"],styles["w-row"])}>
-                <div className={cx(styles["collection-item-perspective"],styles["w-dyn-item"],styles["w-col"],styles["w-col-4"])}>
+                {!this.props.currentProfile ?
+                  (<div className={cx(styles["collection-item-perspective"],styles["w-dyn-item"],styles["w-col"],styles["w-col-4"])}>
                   <a
                     href="#"
                     data-w-id="c975e992-2f8b-6ba2-124b-21e0d25d8393"
@@ -188,13 +197,13 @@ class Profile extends Component {
                     />
                     <div className={cx(styles["div-news-vertival"])}>
                       <div className={cx(styles["div-top"])}>
-                        
+
                         <div
                           style={{
                             "background-color": "rgba(201, 0, 53, 0.85)"
                           }}
                           className={cx(styles["categoria"])}>
-                          Interview
+                          Ruby
                         </div>
                       </div>
                       <p className={cx(styles["titulo"],styles["negro"])}>
@@ -204,154 +213,45 @@ class Profile extends Component {
                       </p>
                     </div>
                   </a>
-                </div>
-                <div className={cx(styles["collection-item-perspective"],styles["w-dyn-item"],styles["w-col"],styles["w-col-4"])}>
-                  <a
-                    href="#"
-                    data-w-id="c975e992-2f8b-6ba2-124b-21e0d25d8393"
-                    className={cx(styles["news-link"],styles["vertical"],styles["peque"],styles["w-inline-block"])}
-                    style={{
-                      "will-change": "transform",
-                      transform:
-                        "translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0.001deg) rotateY(-0.0007deg) rotateZ(0deg) skew(0deg, 0deg)",
-                      "transform-style": "preserve-3d"
-                    }}
-                  >
-                    <div
+                </div>) : this.props.currentProfile.questions.map(question => {
+                  return (
+                    <div className={cx(styles["collection-item-perspective"],styles["w-dyn-item"],styles["w-col"],styles["w-col-4"])}>
+                    <a
+                      href="#"
+                      data-w-id="c975e992-2f8b-6ba2-124b-21e0d25d8393"
+                      className={cx(styles["news-link"],styles["vertical"],styles["peque"],styles["w-inline-block"])}
                       style={{
-                        "background-image":
-                          "url(https://webgradients.com/public/webgradients_png/019%20Malibu%20Beach.png)"
+                        "will-change": "transform",
+                        transform:
+                          "translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(-0.0007deg) rotateY(0.0006deg) rotateZ(0deg) skew(0deg, 0deg)",
+                        "transform-style": "preserve-3d"
                       }}
-                      className={cx(styles["imagen-peque"])}
-                    />
-                    <div className={cx(styles["div-news-vertival"])}>
-                      <div className={cx(styles["div-top"])}>
-                        
-                        <div
-                          style={{
-                            "background-color": "rgba(201, 0, 53, 0.85)"
-                          }}
-                          className={cx(styles["categoria"])}>
-                          Ruby
+                    >
+                      <div
+                        style={{
+                          "background-image":
+                            "url(https://webgradients.com/public/webgradients_png/019%20Malibu%20Beach.png)"
+                        }}
+                        className={cx(styles["imagen-peque"])}
+                      />
+                      <div className={cx(styles["div-news-vertival"])}>
+                        <div className={cx(styles["div-top"])}>
+                          <div
+                            style={{
+                              "background-color": "rgba(201, 0, 53, 0.85)"
+                            }}
+                            className={cx(styles["categoria"])}>
+                            {question.categories.map(e => e.title).join(", ")}
+                          </div>
                         </div>
+                        <p className={cx(styles["titulo"],styles["negro"])}>
+                          {question.statement.substring(0,40)}
+                        </p>
                       </div>
-                      <p className={cx(styles["titulo"],styles["negro"])}>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        cididunt ut labore et dolore magna aliqua.
-                      </p>
-                    </div>
-                  </a>
-                </div>
-                <div className={cx(styles["collection-item-perspective"],styles["w-dyn-item"],styles["w-col"],styles["w-col-4"])}>
-                  <a
-                    href="#"
-                    data-w-id="c975e992-2f8b-6ba2-124b-21e0d25d8393"
-                    className={cx(styles["news-link"],styles["vertical"],styles["peque"],styles["w-inline-block"])}
-                    style={{
-                      "will-change": "transform",
-                      transform:
-                        "translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(-0.0007deg) rotateY(-0.0007deg) rotateZ(0deg) skew(0deg, 0deg)",
-                      "transform-style": "preserve-3d"
-                    }}
-                  >
-                    <div
-                      style={{
-                        "background-image":
-                          "url(https://webgradients.com/public/webgradients_png/019%20Malibu%20Beach.png)"
-                      }}
-                      className={cx(styles["imagen-peque"])}
-                    />
-                    <div className={cx(styles["div-news-vertival"])}>
-                      <div className={cx(styles["div-top"])}>
-                        
-                        <div
-                          style={{
-                            "background-color": "rgba(201, 0, 53, 0.85)"
-                          }}
-                          className={cx(styles["categoria"])}>
-                          Java
-                        </div>
-                      </div>
-                      <p className={cx(styles["titulo"],styles["negro"])}>
-                        Lorem ipsum dolor or incididunt ut labore et dolore
-                        magna aliqua.
-                      </p>
-                    </div>
-                  </a>
-                </div>
-                <div className={cx(styles["collection-item-perspective"],styles["w-dyn-item"],styles["w-col"],styles["w-col-4"])}>
-                  <a
-                    href="#"
-                    data-w-id="c975e992-2f8b-6ba2-124b-21e0d25d8393"
-                    className={cx(styles["news-link"],styles["vertical"],styles["peque"],styles["w-inline-block"])}
-                    style={{
-                      "will-change": "transform",
-                      transform:
-                        "translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0.001deg) rotateY(0.001deg) rotateZ(0deg) skew(0deg, 0deg)",
-                      "transform-style": "preserve-3d"
-                    }}
-                  >
-                    <div
-                      style={{
-                        "background-image":
-                          "url(https://webgradients.com/public/webgradients_png/019%20Malibu%20Beach.png)"
-                      }}
-                      className={cx(styles["imagen-peque"])}
-                    />
-                    <div className={cx(styles["div-news-vertival"])}>
-                      <div className={cx(styles["div-top"])}>
-                        
-                        <div
-                          style={{
-                            "background-color": "rgba(255, 196, 0, 0.85)"
-                          }}
-                          className={cx(styles["categoria"])}>
-                          JavaScript, React
-                        </div>
-                      </div>
-                      <p className={cx(styles["titulo"],styles["negro"])}>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                      </p>
-                    </div>
-                  </a>
-                </div>
-                <div className={cx(styles["collection-item-perspective"],styles["w-dyn-item"],styles["w-col"],styles["w-col-4"])}>
-                  <a
-                    href="#"
-                    data-w-id="c975e992-2f8b-6ba2-124b-21e0d25d8393"
-                    className={cx(styles["news-link"],styles["vertical"],styles["peque"],styles["w-inline-block"])}
-                    style={{
-                      "will-change": "transform",
-                      transform:
-                        "translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0.001deg) rotateY(-0.0006deg) rotateZ(0deg) skew(0deg, 0deg)",
-                      "transform-style": "preserve-3d"
-                    }}
-                  >
-                    <div
-                      style={{
-                        "background-image":
-                          "url(https://webgradients.com/public/webgradients_png/019%20Malibu%20Beach.png)"
-                      }}
-                      className={cx(styles["imagen-peque"])}
-                    />
-                    <div className={cx(styles["div-news-vertival"])}>
-                      <div className={cx(styles["div-top"])}>
-                        
-                        <div
-                          style={{
-                            "background-color": "rgba(96, 77, 141, 0.85)"
-                          }}
-                          className={cx(styles["categoria"])}>
-                          Ruby
-                        </div>
-                      </div>
-                      <p className={cx(styles["titulo"],styles["negro"])}>
-                        Lorem ipsum dolor sit amet, consectetur adipiscdolore
-                        magna aliqua.
-                      </p>
-                    </div>
-                  </a>
-                </div>
+                    </a>
+                  </div>
+                  )
+                })}
               </div>
             </div>
           </div>
@@ -361,4 +261,10 @@ class Profile extends Component {
   }
 }
 
-export default Profile;
+const mapStateToProps = state => {
+  return {
+    currentProfile: state.user.currentProfile
+  }
+}
+
+export default connect(mapStateToProps)(Profile)

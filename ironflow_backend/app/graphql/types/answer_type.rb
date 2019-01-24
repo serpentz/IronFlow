@@ -4,4 +4,5 @@ Types::AnswerType = GraphQL::ObjectType.define do
   field :id, !types.ID
   field :statement, types.String
   field :user, -> { Types::UserType }
+  field :question, -> {Types::QuestionType}
 end
