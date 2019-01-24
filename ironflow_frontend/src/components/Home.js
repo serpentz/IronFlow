@@ -11,10 +11,16 @@ class Home extends Component {
 
 
 
-  render() {
+  getFilteredList = () => {
+    let {category, questions} = this.props
+    return category ? questions.filter((question) => {
+      return question.categories.some((cat) => {return cat.title == category})
+    }): questions
+  }
 
+  render() {
     return (
-                <div>
+          <div>
             <div
               className={cx(styles["loader--2"],styles["loader-main-2"])}
               data-ix="page-loader"
@@ -73,8 +79,8 @@ class Home extends Component {
                       >
                           {
 
-                            this.props.questions.map((a)=> {
-                               
+                            this.getFilteredList().map((a)=> {
+
                                return <QuestionCard question={a}/>}
                              )
                           }

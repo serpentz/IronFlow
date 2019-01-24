@@ -7,9 +7,8 @@ import '../css/Hero.css'
 class Hero extends Component {
   render() {
     return (
-      <div class="cont">
-
-      
+      <div className="cont">
+            
       </div>
 
     );

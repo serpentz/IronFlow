@@ -83,7 +83,7 @@ module Resolvers
     def call(_obj, args, _ctx)
       @id = Adapter::Auth.new.decoded_token(args[:token])
 
-      byebug
+
       @user = User.find @id.to_i
 
       # ensures we found the user

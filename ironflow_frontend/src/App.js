@@ -16,13 +16,14 @@ class App extends Component {
 
   componentDidMount(){
     this.props.fetchQuestions()
-    if(localStorage.getItem("token")){this.props.getProfile(localStorage.getItem("token"))} 
+    if(localStorage.getItem("token")){this.props.getProfile(localStorage.getItem("token"))}
   }
   render() {
     return (
       <Fragment>
        <NavBar />
       <Switch>
+        <Route path="/feed/:tag" render={(props)=> <Home category={props.match.params.tag}/>} />
         <Route path="/feed" component={Home} />
         <Route path="/question" component={Question}/>
         <Route path="/profile" component={Profile} />

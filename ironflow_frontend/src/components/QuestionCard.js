@@ -21,7 +21,6 @@ class QuestionCard extends Component {
       <Link to="/question">
         <div
           onClick={() => {
-            alert(this.props.question.statement);
             this.props.selectQuestion(this.props.question);
           }}
           className="my-5"
