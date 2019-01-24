@@ -4,6 +4,8 @@ import profile from '../Profile.module.css'
 import React, { Component,Fragment } from "react";
 import {connect}from 'react-redux'
 import QuestionCard from './QuestionCard'
+import Hero from "./Hero"
+import Footer from "./Footer"
 import {Link,withRouter} from 'react-router-dom'
 import cx from 'classnames';
 
@@ -26,15 +28,7 @@ class Home extends Component {
               data-ix="page-loader"
               style={{ display: "none", transition: "opacity 200ms ease 0s", opacity: 0 }}
             >
-              <div className={styles["background-loader-2"]}>
-                <img
-                  src="https://uploads-ssl.webflow.com/5b991c5d6c758280566b3b8a/5b9a6ab814101a4ae64f4206_Facebook-1s-200px.svg"
-                  height="0"
-                  alt=""
-                  className={styles["image-7"]}
-                  width="0"
-                />
-              </div>
+
 
             </div>
             <div className={styles["body-custom-crypto"]}>
@@ -53,11 +47,10 @@ class Home extends Component {
                     )
                   }
                 />
+
                 <div className={styles["section-hero-top-crypto"]}>
                   <div className={styles["div-s1-title-intro"]}>
-                    <div className={styles["div-block-4"]}>
-
-                    </div>
+                    <Hero />
                   </div>
                 </div>
               </div>
@@ -91,29 +84,7 @@ class Home extends Component {
                     </div>
                   </div>
 
-              <section id="footer" className={styles["footer-3"]}>
-                <div className={styles["footer-left"]}>
-                  <a
-                    href="https://twitter.com/GarethMoison"
-                    className={styles["social_link w-inline-block-block"]}
-                  >
-                    <img
-                      src="https://uploads-ssl.webflow.com/5b67621af109cf31dad8da5c/5b67621af109cf75d2d8da71_Twitter-black.svg"
-                      height="0"
-                      alt=""
-                      className={styles["umanist_twitter"]}
-                      width="0"
-                      style={{
-                        display: "none !important",
-                        visibility: "hidden !important",
-                        opacity: "0 !important",
-                        "background-position": "0px 15px"
-                      }}
-                    />
-                  </a>
-                </div>
-                <div className={styles["header-center"]} />
-              </section>
+              
             </div>
         </div>
     );

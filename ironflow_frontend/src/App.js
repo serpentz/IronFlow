@@ -7,6 +7,7 @@ import Question from "./components/QuestionPage";
 import {fetchQuestions} from './redux/actions/questions'
 import {getProfile} from './redux/actions/user'
 import {connect} from 'react-redux'
+import Footer from './components/Footer'
 import { Route, Switch,withRouter, Redirect } from "react-router-dom";
 import AskQuestion from './components/AskQuestion'
 
@@ -29,7 +30,9 @@ class App extends Component {
         <Route path="/profile" component={Profile} />
         <Route path="/" component={Main} />
       </Switch>
+      <Footer />
       </Fragment>
+
     );
   }
 }
