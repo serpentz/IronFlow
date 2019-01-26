@@ -4566,6 +4566,7 @@ a {
 .grid-block {
     display: -webkit-flex;
     display: flex;
+    height: 60vh;
     padding: 20px;
     -webkit-box-direction: normal;
     -ms-flex-direction: column;
@@ -4740,6 +4741,7 @@ a {
     display: -webkit-box;
     display: flex;
     width: 100%;
+    overflow: scroll;
     -webkit-box-direction: normal;
     -ms-flex-direction: column;
     flex-direction: column;

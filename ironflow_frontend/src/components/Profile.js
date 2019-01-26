@@ -83,8 +83,6 @@ class Profile extends Component {
             </div>
           </div>
           <div
-            id="w-node-d98086ac605b-cd5fc69e"
-            data-w-id="f2916151-ef31-605b-0487-d98086ac605b"
             style={{
               opacity: 1,
               transform:
@@ -106,6 +104,7 @@ class Profile extends Component {
                     className={cx(styles["news-link"],styles["lateral"],styles["w-inline-block"])}
                     style={{
                       "will-change": "transform",
+
                       transform:
                         "translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg)",
                       "transform-style": "preserve-3d"
@@ -135,6 +134,7 @@ class Profile extends Component {
                          className={cx(styles["news-link"],styles["lateral"],styles["w-inline-block"])}
                          style={{
                            "will-change": "transform",
+
                            transform:
                              "translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg)",
                            "transform-style": "preserve-3d"
@@ -164,15 +164,14 @@ class Profile extends Component {
             </div>
           </div>
           <div
-            id="w-node-90978faf8d01-cd5fc69e"
-            data-w-id="53233b76-917f-2054-e48d-90978faf8d01"
             style={{
               transform:
                 "translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg)",
+                  height:"45vh",
               opacity: 1,
               "transform-style": "preserve-3d"
             }}
-            // className={cx(styles["grid-block"])}
+           className={cx(styles["grid-block"])}
           >
             <div className={cx(styles["block-header"])}>
               <h3>Questions</h3>
