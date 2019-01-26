@@ -8,6 +8,8 @@ class Hero extends Component {
   render() {
     return (
       <div className="cont">
+      <h2 className="hero title"> IRONFLOW</h2>
+      <h3> let the knowledge flow</h3>
         	<div className="hold-illustration w-preserve-3d">
         		<div className="cs__parent w-preserve-3d">
         			<div className="cs__hero-section">
@@ -42,7 +44,7 @@ class Hero extends Component {
         					<div className="hold-letter" data-ix="show-letter-9" style={{opacity: "1", display: "inline-block", transition: "opacity 350ms ease 0s"}}>
         						<div>W</div>
         					</div>
-        					
+
         					<div className="hold-letter" data-ix="show-letter-11" style={{opacity: "1", display: "none", transition: "opacity 350ms ease 0s"}}>
         						<div>d</div>
         					</div>
