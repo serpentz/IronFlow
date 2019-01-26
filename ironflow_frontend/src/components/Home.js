@@ -56,7 +56,7 @@ class Home extends Component {
 
                 <div className={styles["section-hero-top-crypto"]}>
                   <div className={styles["div-s1-title-intro"]}>
-                    <Hero />
+                
                   </div>
                 </div>
               </div>

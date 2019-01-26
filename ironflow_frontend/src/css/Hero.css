@@ -10,8 +10,8 @@
       -ms-flex-align: center;
           align-items: center;
   height: 60vh;
-  background-image: -webkit-linear-gradient(right top, #9CECFB 0%, #65C7F7 100%);
-  background-image: linear-gradient(to left bottom, #9CECFB 0%, #65C7F7 100%);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#65C7F7), to(#0052D4));
+  background-image: linear-gradient(to left bottom, #65C7F7 0%, #0052D4 100%);
   overflow: hidden;
 }
 
