@@ -5,11 +5,16 @@ import cx from "classnames"
 import {connect} from 'react-redux'
 
 class Profile extends Component {
+
+  componentDidUpdate() {
+        window.scrollTo(0, 0);
+    }
   render() {
 
     if(this.props.currentProfile){
       let {image_url,name,questions,answers} = this.props.currentProfile
     }
+
 
 
     return (

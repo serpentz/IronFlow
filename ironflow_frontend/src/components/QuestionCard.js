@@ -58,13 +58,15 @@ class QuestionCard extends Component {
                 </Link>
               ))}
 
-              <p style={{ margin: "10px" }}>
+              <p onClick={() => this.props.selectProfile(user_id)} style={{ margin: "10px" }}>
                 asked by{" "}
-                <p onClick={() => this.props.selectProfile(user_id)}>
+
                   <Link className="font-weight-bold" to="/profile">
+
                     {name}
+
                   </Link>
-                </p>
+
                 , 16/04/2018
               </p>
             </div>

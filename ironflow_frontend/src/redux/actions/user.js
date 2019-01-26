@@ -164,7 +164,6 @@ let query = `{
       }`
       return dispatch => {
 
-
          return request(GRAPH_QL_ENDPOINT,query)
                  .then(response => {
                    if(response.user){

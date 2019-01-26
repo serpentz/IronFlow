@@ -1,7 +1,8 @@
 import React, { Component, Fragment } from "react";
 
-import { Route, Switch, Link } from "react-router-dom";
+import { Route, Switch, Link, Profile } from "react-router-dom";
 import { submitAnswer } from "../redux/actions/questions";
+import { selectProfile } from "../redux/actions/user";
 import { connect } from "react-redux";
 
 class Comments extends Component {
@@ -14,6 +15,9 @@ class Comments extends Component {
       console.log(this.state.answer)
     );
   };
+  componentDidUpdate() {
+        window.scrollTo(0, 0);
+    }
 
   handleSubmit = e => {
     this.props.submitAnswer({
@@ -32,13 +36,17 @@ class Comments extends Component {
             {this.props.comments.map(ans => {
               return (
                 <div className="media d-block d-md-flex mt-4">
+                <Link to="/profile">
+                <div   onClick={() => this.props.selectProfile(ans.user.id)}>
                   <img
-                  style={{}}
                     className="mb-3"
                     style={{ height: "5vh", width: "5vh","object-fit": "cover", "border-radius": "50px","background-image": "-webkit-gradient(linear, left top, left bottom, from(#65C7F7), to(#0052D4))"  }}
                     src={ans.user.image_url || "https://upload.wikimedia.org/wikipedia/commons/7/70/User_icon_BLACK-01.png"}
                     alt="Generic placeholder image"
+                    onClick={() => this.props.selectProfile(ans.user.id)}
                   />
+                  </div>
+                </Link>
                   <div className="media-body text-center text-md-left ml-md-3 ml-0">
                     <h5 className="mt-0 font-weight-bold">{ans.user.name}</h5>
                     {ans.statement}
@@ -101,5 +109,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { submitAnswer }
+  { submitAnswer,selectProfile }
 )(Comments);

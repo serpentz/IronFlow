@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from "react";
 import { Link, withRouter, Redirect } from "react-router-dom";
+import {selectProfile} from "../redux/actions/user"
 import { connect } from "react-redux";
 import cx from "classnames";
 import Comments from "./Comments";
@@ -7,6 +8,12 @@ import styles from "../css/Main.module.css";
 import commentStyles from "../css/Comments.module.css";
 
 class QuestionPage extends Component {
+
+
+  componentDidMount() {
+        window.scrollTo(0, 0);
+    }
+    
   render() {
     return (
       <Fragment>
@@ -574,4 +581,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default withRouter(connect(mapStateToProps)(QuestionPage));
+export default withRouter(connect(mapStateToProps,{selectProfile})(QuestionPage));

@@ -18,6 +18,9 @@ class App extends Component {
   componentDidMount(){
     this.props.fetchQuestions()
     if(localStorage.getItem("token")){this.props.getProfile(localStorage.getItem("token"))}
+
+        window.scrollTo(0, 0);
+    
   }
   render() {
     return (

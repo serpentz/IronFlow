@@ -61,13 +61,13 @@ class NavBar extends Component {
             </div>
           </div>
           <div id="home-link" className="navbar1-link logo">
-            <div className="navbar1-logo w-embed">
+            <Link to="/home" className="navbar1-logo w-embed">
               <img src={logo} alt="" style={{ padding: "5px" }} />
-            </div>
+            </Link>
           </div>
           <div className="navbar1-link navbar1-spacer" />
 
-          <Link to="home" className="navbar1-link underline hider">
+          <Link to="/home" className="navbar1-link underline hider">
             Home
           </Link>
 

@@ -19,6 +19,12 @@ class Home extends Component {
       return question.categories.some((cat) => {return cat.title == category})
     }): questions
   }
+  componentDidUpdate() {
+        window.scrollTo(0, 0);
+    }
+  componentDidMount() {
+        window.scrollTo(0, 0);
+    }
 
   render() {
     return (
@@ -84,7 +90,7 @@ class Home extends Component {
                     </div>
                   </div>
 
-              
+
             </div>
         </div>
     );

@@ -44,11 +44,22 @@ arr= [
 
 arr.each do |cat| Category.find_or_create_by title: cat[:label] end
 
-(0...30).each do |x|
+(0...120).each do |x|
   @user = User.create name: "#{Faker::Name.first_name} #{Faker::Name.last_name}", email: Faker::Internet.email,password: "password", points: Faker::Number.number(2), image_url: UiFaces.face
   @categories = [Category.find(rand(1..30)),Category.find(rand(1..30)),Category.find(rand(1..30)),Category.find(rand(1..30))]
 
-  @question = Question.find_or_create_by statement: Faker::Lorem.paragraph(rand(4), true), user: @user, categories: @categories, view_count: rand(122)
-
+  @question = Question.find_or_create_by statement: Faker::Lorem.paragraph(rand(4), true), user_id: rand(1...x), categories: @categories, view_count: rand(122)
 
  end
+
+ (1...999).each do |x|
+    @question = Question.find rand(1..199)
+
+    @user = User.find rand(1..50)
+
+    @answer = Answer.create user: @user, question: @question, statement: Faker::Lorem.paragraph(rand(0..4), true)
+
+
+
+
+  end
