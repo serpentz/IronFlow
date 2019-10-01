@@ -1,4 +1,6 @@
-# IronFlow
-Stack overflow for Flatironers.
+# IronFlow :)
+Stack overflow for Flatironers (Flatiron School Students).
 
-[Imgur](https://i.imgur.com/cWzoWsK.png)
+![Image of Redesign](https://i.imgur.com/cWzoWsK.png)
+
+![Imgur](https://i.imgur.com/NgxVbsX.png)
